@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FIJSAC | Gestión</title>
+    <link rel="shortcut icon" href="../assets/ico/logo.ico" type="image/x-icon">
+    <!-- Custom fonts for this template-->
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="../css/gestion-admin.css" rel="stylesheet">
+    <!-- Icons fontawesome-->
+    <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="gestion.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img id="logoDash" src="../assets/ico/logo.ico" alt="logo">
+                </div>
+            </a>
+            <br>
+
+            <!-- Heading -->
+            <div class="sidebar-brand">
+                Gestión
+            </div>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Operaciones
+            </div>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item active">
+                <a class="nav-link collapsed" th:href="@{/dashboard}">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Ventas</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                    <i class="fas fa-fw fa-box"></i>
+                    <span>Devoluciones</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Productos
+            </div>
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/registro}">
+                    <i class="fas fa-fw fa-plus"></i>
+                    <span>Registro</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/edicion}">
+                    <i class="fas fa-fw fa-pen"></i>
+                    <span>Edición</span>
+                </a>
+            </li>
+
+             <!-- Divider -->
+             <hr class="sidebar-divider">
+
+             <!-- Heading -->
+             <div class="sidebar-heading">
+                 Sistema
+             </div>
+
+            <!-- Nav Item - Tables -->
+            
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/usuario/}">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/producto/}">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <br><br><br><br><br><br><br><br><br><br><br>
+            
+             <li class="nav-item">
+                 <a class="nav-link collapsed" th:href="@{/login}">
+                    <i class="fas fa-fw fa-box" aria-hidden="true"></i>
+                    <span>  Cerrar Sesión</span>
+                 </a>
+             </li>
+        
+        </ul>
+
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline small">Bienvenido, Nombre</span>
+                                <i class="fas fa-user" style="color: #000000;"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">Ventas</h1>
+                        <!-- Topbar Search -->
+                        <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
+                                    aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Table -->
+
+
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Número</th>
+                                            <th>Fecha</th>
+                                            <th>Producto</th>
+                                            <th>SKU</th>
+                                            <th>Stock</th>
+                                            <th>Monto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>VEN-001</td>
+                                            <td>2022-03-15</td>
+                                            <td>Calibrador Digital</td>
+                                            <td>101</td>
+                                            <td>10</td>
+                                            <td>S/ 90.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-002</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
+                                            <td>102</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-003</td>
+                                            <td>2022-04-10</td>
+                                            <td>Broca de rosca</td>
+                                            <td>103</td>
+                                            <td>20</td>
+                                            <td>S/ 48.60</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-004</td>
+                                            <td>2022-04-15</td>
+                                            <td>Juego de destornilladores de precisión</td>
+                                            <td>104</td>
+                                            <td>18</td>
+                                            <td>S/ 48.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-005</td>
+                                            <td>2022-04-15</td>
+                                            <td>metro de carpintero</td>
+                                            <td>105</td>
+                                            <td>9</td>
+                                            <td>S/ 50.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-006</td>
+                                            <td>2022-06-01</td>
+                                            <td>Portabrocas</td>
+                                            <td>106</td>
+                                            <td>12</td>
+                                            <td>S/ 39.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-007</td>
+                                            <td>2022-06-03</td>
+                                            <td>Copa mandril</td>
+                                            <td>107</td>
+                                            <td>20</td>
+                                            <td>S/ 42.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-008</td>
+                                            <td>2022-06-09</td>
+                                            <td>Tonillo de banco</td>
+                                            <td>108</td>
+                                            <td>5</td>
+                                            <td>S/ 166.80</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-009</td>
+                                            <td>2022-10-11</td>
+                                            <td>Pinzas de sujeción</td>
+                                            <td>109</td>
+                                            <td>17</td>
+                                            <td>S/ 45.50</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Content Row -->
+
+
+                    <div class="d-sm-flex justify-content-end mb-4">
+                        <a href="#" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                                class="fas fa-download fa-plus text-white-50"></i> Nueva Venta</a>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto ">
+                        <span>FIJSAC | Grupo 2 - Soluciones Web</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de cerrar sesión?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona 'Cerrar Sesión' para confirmar o 'Cancelar' para volver a la
+                    aplicación".
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
+    <!-- Custom scripts for all pages -->
+    <script src="../js/gestion-admin.min.js"></script>
+</body>
+
+</html>

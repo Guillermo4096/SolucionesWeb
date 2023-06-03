@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <title>FIJSAC - LOGIN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" th:href="@{/css/stylelogin.css}">
+  <link rel="shortcut icon" th:href="@{/assets/ico/logo.ico}" type="image/x-icon">
+
+</head>
+<body class="login-page">
+  <div id="particles-js"></div>
+  <main class="login-wrapper">
+    <div class="middle-aligment-flex">
+      <div class="login-image_wrapper op0" id="contenedorImagen">
+        <!-- logo -->
+        <div>
+        <img th:src="@{/assets/ico/logo.ico}">
+        </div>
+        <div>
+            <span class="loader">FIJSAC</span>
+        </div>
+        <!-- end logo -->
+      </div>
+      <form class="form-signin op" id="contenedorLogin">
+        <h1 class="title" id="title-form">Iniciar Sesión</h1>
+        <div>
+            <input class="bordes" id="inputUserName" placeholder="Usuario" required type="user" />
+        </div>
+        <div>
+          <input id="inputPassword" placeholder="Contraseña" required="" type="password" />
+        </div>
+        <a th:href="@{/dashboard}" class="button button-orange w100" id="btnIngresar">Ingresar</a><a th:href="@{/}" id="btnRegresar">Regresar</a>
+        <!--<button class="button-signin button-orange w100" type="submit">Ingresar</button><a th:href="@{/}">Regresar</a>-->
+      </form>
+    </div>
+  </main>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js'></script>
+  <script th:src="@{/js/scriptlogin.js}"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script th:src="@{/js/scriptlogin2.js}"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

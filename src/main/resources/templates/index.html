@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIJSAC | Soluciones Web</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/ico/logo.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/other/styleloader.css}">
+    <script th:src="@{/js/script.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+</head>
+<body class="hidden">
+    <div class="content-loader" id="onload">
+        <div class="div1">
+            <div class="container-ld1" >
+                <div class="loader-ld1"></div>
+                <div class="loader-ld1">
+                </div>
+                <div class="loader-ld1"></div>
+            </div>
+        </div>
+        <div id="div2">
+            <div class="loader-ld2">
+                <p>Cargando</p>
+                <div class="words-ld2">
+                    <span class="word-ld2">Información</span>
+                    <span class="word-ld2">Imágenes</span>
+                    <span class="word-ld2">Productos</span>
+                    <span class="word-ld2">Videos</span>
+                    <span class="word-ld2">Contacto</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="#" class="enlace">
+            <img th:src="@{/assets/img/logo2.png}" alt="" class="logo">
+            <span>FIJSAC</span>
+        </a>
+        <ul class="nav-bar">
+            <li class="objectli"><a href="#nosotros">Nosotros</a></li>
+            <li class="objectli"><a href="#productos">Productos</a></li>
+            <li class="objectli"><a href="#Galería">Galería</a></li>
+            <li class="objectli"><a href="#Contacto">Contacto</a></li>
+            <li class="objectli"><a th:href="@{/login}">Sistema</a></li>
+        </ul>
+    </nav>
+    <div class="row" id="modify-row">
+        <div class="cont-md-12 cont-lg-12 p-0 fondo" id="nosotros"></div>
+        <div class="texto">
+            <h1>Herramientas de corte, medición, sujeción 
+                y abrasivos en Cercado de Lima</h1>
+            <p>Nos dedicamos a la importación y venta de herramientas</p>
+            <a 
+                href="https://wa.me/998169515?text=Hola!%20Quiero%20información%20sobre%20sus%20productos"
+                target="_blank" class="btn-wsp">
+                <img th:src="@{/assets/ico/svg/whatsapp-fill-svgrepo-com.svg}" alt="" class="wsp-svg">
+                <span>WhatsApp</span>
+            </a>
+        </div>
+    </div>
+    <div class="row" id="modify-row">
+        <div class="cont-md-12 cont-lg-12 text-center sub-title">
+            <h2>Nosotros</h2>
+            <p>Somos una empresa en Cercado de Lima dedicada a la importación
+                 y venta de herramientas industriales. En Ferretería Industrial
+                  Jorge S.A.C. "Fijsac" disponemos de herramientas de corte, 
+                  medición, sujeción y abrasivos en general.</p>
+        </div>
+        <div class="cont-md-12 cont-lg-12 pt-2 pb-4 cont-nosotros">
+            <div class="carta-item ">
+                <div class="carta carta-1">
+                    <h2>Misión</h2>
+                    <p>
+                      Nuestra actividad principal es el desarrollo como importador de 
+                      alta calidad y solucionar los problemas que se les presentan a 
+                      nuestros clientes.
+                    </p>
+                    <h4>FIJSAC</h4>
+                  </div>
+            </div>
+            <div class="carta-item">
+                <div class="carta carta-2">
+                    <h2>Visión</h2>
+                    <p>
+                      Ser una empresa líder en el mercado nacional de máquinas y 
+                      herramientas de corte para los sectores industriales, mineros y 
+                      empresariales, ofreciendo los 
+                      mejores productos de la más alta calidad y brindando una atención 
+                      especializada.
+                    </p>
+                    <h4>FIJSAC</h4>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="padreProd" id="productos">
+        <div class="contenedorProd">
+            <div class="col-md-12 col-lg-12 text-center sub-title">
+                <h2>Productos destacados</h2>
+            </div>
+            <input type="radio" id="todo" name="categories" value="todo" checked>
+            <input type="radio" id="h_mano" name="categories" value="h_mano">
+            <input type="radio" id="h_electricas" name="categories" value="h_electricas">
+            <input type="radio" id="m_manuales" name="categories" value="m_manuales">
+            <input type="radio" id="a_seguridad" name="categories" value="a_seguridad">
+            <input type="radio" id="soldadura" name="categories" value="soldadura">
+            <input type="radio" id="medicion" name="categories" value="medicion">
+        
+            <ol class="filters">
+              <li><label for="todo">Todo</label></li>
+              <li><label for="h_mano">H. de mano</label></li>
+              <li><label for="h_electricas">H. eléctricas</label></li>
+              <li><label for="m_manuales">M. manuales</label></li>
+              <li><label for="a_seguridad">A. seguridad</label></li>
+              <li><label for="soldadura">Soldadura</label></li>
+              <li><label for="medicion">Medición</label></li>
+            </ol>
+        
+            <ol class="posts">
+              <li class="post" data-category="h_mano">
+                  <img class="card__img img_class" th:src="@{/assets/img/productos_destacados/super-b-llave-dinamometrica-digital-1-4-3-30nm.jpg}" alt="Snowy Mountains">
+                  <div class="card__content">
+                    <h1 class="card__header">Super B Llave Dinamométrica Digital 1/4´´ 3-30Nm</h1>
+                    <p class="card__text">Notificación de audio cuando se alcanza el par preestablecido.</p>
+                    <!--<button class="card__btn">Explore </button>-->
+                  </div>
+              </li>
+              <li class="post" data-category="h_mano h_electricas">
+                  <img class="card__img" th:src="@{/assets/img/productos_destacados/destornillador-inalambrico-recargable.jpg}" alt="Desert">
+                  <div class="card__content">
+                    <h1 class="card__header">Destornillador inalámbrico recargable con juego de 48 piezas</h1>
+                    <p class="card__text">Taladro multifunción y destornillador eléctrico.</p>
+                    <!--<button class="card__btn">Explore </button>-->
+                  </div>
+              </li>
+              <li class="post" data-category="m_manuales h_electricas">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/Sierra-circular-eléctrica.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Sierra circular eléctrica de 4 amperios de 4.5 pulgadas</h1>
+                  <p class="card__text">Ligera, por lo que puede operarla con una mano.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="h_mano">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/Llave-dinamometrica-con-accionamiento-de-1-4-de-pulgada.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Llave dinamométrica con accionamiento de 1/4 de pulgada</h1>
+                  <p class="card__text">Cuenta con una báscula de doble rango con impresión amarilla.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="h_mano">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/juego-de-destornilladores.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Kit de destornilladores de precisión 60 en 1</h1>
+                  <p class="card__text">Variedad de brocas especiales: con diferentes tipos de brocas de destornillador.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="a_seguridad">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/arnes-de-medio-cuerpo.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Arneses de medio cuerpo para rescate de incendios Espeleología</h1>
+                  <p class="card__text">Con costuras fuertes, resistencia al desgaste, mayor soporte de carga.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="a_seguridad">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/bota-de-trabajo-industrial.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Bota de trabajo industrial impermeable con punta de seguridad</h1>
+                  <p class="card__text">La suela de TPU cuenta con tacos profundos para una mayor tracción.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="a_seguridad">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/mascarilla-completa-3m.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Casco con trinquete H8A de 3M con protector facial</h1>
+                  <p class="card__text">El protector facial está hecho de policarbonato duradero.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="soldadura">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/estacion-de-soldadura.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Estación de soldadura TXINLEI 8586 de 110 V</h1>
+                  <p class="card__text">El producto adopta el control del microordenador, el aire caliente es una pantalla LED digital.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="h_mano medicion">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/calibrador-digital-electronico-neiko.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">Calibrador digital electrónico NEIKO 01407A</h1>
+                  <p class="card__text">Esta herramienta de medición tiene tres modos de medición.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="h_mano medicion">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/Mini-medidor-de-altura-digital.jpg}" alt="Canyons">
+                <div class="card__content">
+                    <h1 class="card__header">Mini medidor de altura digital Wixey WR25 de 3»</h1>
+                    <p class="card__text">Plano para el posicionamiento de la guía a la hoja.</p>
+                    <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+              <li class="post" data-category="h_mano medicion">
+                <img class="card__img" th:src="@{/assets/img/productos_destacados/Cinta-métrica.jpg}" alt="Canyons">
+                <div class="card__content">
+                  <h1 class="card__header">DEWALT DWHT36226S 26'/ 8 m XP - Cinta métrica</h1>
+                  <p class="card__text">La cinta métrica DeWalt Extended Performance es la más resistente.</p>
+                  <!--<button class="card__btn">Explore </button>-->
+                </div>
+              </li>
+            </ol>
+          </div>
+    </div>
+
+        <!--GALERIA-->
+        <div class="container mt-2" id="galeria">
+          <div class="col-md-12 col-lg-12 text-center sub-title" id="Galería">
+            <h2>GALERÍA</h2>
+          </div>
+          <div class="row">
+            <div class="video-wrapper col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/1.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Llave dinamometrica</h5>
+                <p class="card-text">
+                  Llave dinamométrica de acero de aleación de níquel-cromo de alta calidad, resistente y duradera, con excelente resistencia al desgaste y rendimiento antioxidante
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/2.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Taladro Atornillador Dowen PAGIO</h5>
+                <p class="card-text">
+                  Maletín plástico para protección y transporte + accesorios 6 puntas hexagonales. Sistema 2 en 1. Taladro/Atornillador con solo desmontar el mandril se convierte en atornillador
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/3.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Sierra Circular MAKITA 5007NK 1800W</h5>
+                <p class="card-text">
+                  Alta potencia, profundidad máxima de corte de 63,5 mm (2-1 / 2). Capacidad máxima de bisel: 56 grados. Grandes capacidades de corte y bisel con topes positivos a 22,5 ° y 45 °.
+                </p>
+              </div>
+            </div>
+            <div class="video-wrapper col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/4.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Calibre digital Asimetro</h5>
+                <p class="card-text">
+                  El calibrador estará listo para mediciones tan pronto como se encienda con la pantalla LCD que muestra la posición real del deslizador. No es necesario ajustar la posición cero cada vez que se usa el calibrador.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/5.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Estación de soldadura BAKU BK-878L</h5>
+                <p class="card-text">
+                  Se puede usar para resoldar chips de gráfica GPU y CPU (casi reballing) a 250º, cambiar conector USB móvil, soldar cables y componentes electrónicos, tiene un regulador de temperatura para pistola de aire caliente.
+                </p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4 mt-3 mb-3">
+              <video width="100%" height="auto" onclick="this.requestFullscreen()" controls>
+                <source th:src="@{assets/videos/6.mp4}" type="video/mp4">
+              </video>
+              <div class="card-body">
+                <h5 class="card-title">Arnes de seguridad Golden Eagle</h5>
+                <p class="card-text">
+                  Diseñado para protección contra caídas. Con 1 anillo D dorsal deslizable y 5 puntos de ajuste.Es importante realizar con periodicidad la limpieza de su equipo Golden Eagle para conservar las
+                  características de seguridad.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!--FORMULARIO-->
+    <section id="Contacto" class="contenedorForm">
+      <div class="container">
+        <div class="cont-md-12 cont-lg-12 text-center sub-title">
+          <h2>Contacto</h2>
+        </div>
+      </div>
+      <form action="https://formsubmit.co/ffijsac@gmail.com" method="POST" class="formulario-contacto">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 pt-3 pb-3">
+            <label for="name">Nombres y Apellidos:</label>
+            <input class="form-control"type="text" name="name" id="name" placeholder="Nombres y Apellidos"  >
+          </div>
+          <div class="col-12 pt-3 pb-3">
+            <label for="phone">Teléfono:</label>
+            <input class="form-control" type="tel" name="phone" id="phone" placeholder="Teléfono">
+          </div>
+          <div class="col-12 pt-3 pb-3">
+            <label for="email">Correo:</label>
+            <input class="form-control" type="email" name="email" id="email" placeholder="Correo">
+          </div>
+          <div class="col-12 pt-3 pb-3">
+            <label for="message">Mensaje:</label>
+            <textarea class="form-control" name="message" id="message" cols="38" rows="10"></textarea>
+          </div>
+          <div class="col-12 pt-3 pb-3">
+            <input class="btn-formulario form-control" type="submit" value="Enviar">
+            <input type="hidden" name="_next" value="http://localhost:8080/#Contacto">
+            <input type="hidden" name="_captcha" value="false">
+          </div>
+          </div>
+        </div>
+      </form>
+    </section>
+    <div class="cont-ubicacion">
+      <div class="col-md-12 col-lg-12 text-center sub-title">
+          <h2>Ubicación</h2>
+        </div>
+        <div class="map d-none d-sm-block">
+            <iframe style="border:0; width: 100%; height: 350px;"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.990469714346!2d-77.04889342593586!3d-12.044176441850519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8d28c071651%3A0x12389eec24f0b12a!2sFerreter%C3%ADa%20Industrial%20Jorge%20S.A.C.%20FIJSAC.!5e0!3m2!1ses-419!2spe!4v1683258257492!5m2!1ses-419!2spe"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="btn_mapa mt-4">
+          <button class="btn btn-primary d-block d-sm-none mapeo"><a href="https://www.google.com/maps/place/Ferreter%C3%ADa+Industrial+Jorge+S.A.C.+FIJSAC.,+Avenida+Argentina+725+Int.+116+-117,+Lima+15082/@-12.0441817,-77.0463185,17z/data=!4m6!3m5!1s0x9105c8d28c071651:0x12389eec24f0b12a!8m2!3d-12.0441817!4d-77.0463185!16s%2Fg%2F11h6gwggv7" class="enlace_mapa">Ver Mapa</a></button>
+        </div>
+      </div>
+      <div class="row other-information-main" id="modify-row">
+          <div class="cont-md-12 cont-lg-12 text-center sub-title">
+            <h2>Otra información</h2>
+        </div>
+        <div class="cont-md-12 cont-lg-12 text-center other-information pt-2 pb-4">
+            <div class="contact-item p-4">
+                <a href="https://wa.me/998169515?text=Hola!%20Quiero%20información%20sobre%20sus%20productos" target="_blank" class="wsp-item">
+                    <img th:src="@{/assets/ico/svg/whatsapp-fill-svgrepo-com.svg}" alt="" class="wsp-icon">
+                    <br>
+                    <span class="contact-text">WhatsApp</span>
+                </a>
+            </div>
+            <div class="contact-item p-4">
+                <a href="mailto:fijsac@hotmail.com" class="mail-item">
+                    <img th:src="@{/assets/ico/svg/email-envelope-letter-mail-message-svgrepo-com.svg}" class="mail-icon">
+                    <br>
+                    <span>Correo</span>
+                </a>
+            </div>
+            <div class="contact-item p-4">
+                <a href="https://goo.gl/maps/sKLRjFsAGvfZsVE87" target="_blank" class="map-item">
+                    <img th:src="@{/assets/ico/svg/map-svgrepo-com.svg}" class="map-icon">
+                    <br>
+                    <span>Map</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="modify-row">
+        <div class="cont-md-12 cont-lg-12 text-center footer">
+            <span>Ferreteria Industrial Jorge S.A.C</span>
+            <br>
+            <span>Grupo 2 | FIJSAC</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito+Sans:400,600");
+*, *:after, *:before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  color: white;
+  font-size: 1.6em;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+fieldset, input, select, textarea {
+  margin-bottom: 1.5rem;
+}
+
+input[type=user], input[type=number], input[type=password], input[type=search], input[type=tel], input[type=text], input[type=url], textarea, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0.1rem solid #000000;
+  border-radius: 0.4rem;
+  box-shadow: none;
+  box-sizing: inherit;
+  height: 3.8rem;
+  padding: 0.6rem 1rem;
+  width: 100%;
+}
+
+input[type=user]:focus, input[type=number]:focus, input[type=password]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=text]:focus, input[type=url]:focus, textarea:focus, select:focus {
+  border-color: #ffffff;
+  outline: 0;
+}
+
+.button, button, input[type=button], input[type=reset], input[type=submit] {
+  background-color: #9b4dca;
+  border: 0.1rem solid #9b4dca;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  height: 3.8rem;
+  letter-spacing: 0.1rem;
+  line-height: 3.8rem;
+  padding: 0 3rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.button-orange {
+  background: #75c749;
+  border-color: #75c749;
+  font-size: 14px;
+}
+.button-orange:focus, .button-orange:hover {
+  background-color: #75c749b8;
+  border-color: #75c749b8;
+  outline: 0;
+}
+
+a {
+  color: #17a6d4;
+  text-decoration: none;
+  
+}
+a:focus, a:hover {
+  color: #42c2eb;
+}
+
+.middle-aligment-flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.op0 {
+  opacity: 0;
+}
+
+.w100 {
+  width: 100%;
+}
+
+body.login-page {
+  background-size: cover;
+  overflow: hidden;
+}
+
+main.login-wrapper {
+  height: 100vh;
+  text-align: center;
+  display: block;
+}
+main.login-wrapper .login-image_wrapper {
+  background: #75c749;
+  padding: 50px  110px 45px;
+  box-shadow: 8px 8px 28px rgba(0, 0, 0, 0.32);
+  
+}
+main.login-wrapper .form-signin {
+  min-width: 38rem;
+  opacity: 0;
+  
+  background: #252525;
+  padding: 100px 60px;
+  box-shadow: 8px 8px 28px rgba(0, 0, 0, 0.32);
+  margin-bottom: 0;
+  z-index: 1;
+  
+  /*p*/
+}
+main.login-wrapper .form-signin .title {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.1rem;
+  padding-bottom: 10px;
+}
+main.login-wrapper .form-signin .signin {
+  line-height: 1.3;
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #1C344A;
+}
+main.login-wrapper .form-signin input {
+  border-radius: 0;
+}
+main.login-wrapper .form-signin .button-signin {
+  margin-bottom: 5px;
+  border-radius: 0;
+}
+body, html {
+	height: 100%;
+	background-repeat: no-repeat;    /*background-image: linear-gradient(rgb(12, 97, 33),rgb(104, 145, 162));*/
+  background:rgb(22, 22, 22);
+	position: relative;
+}
+#particles-js{
+  	width: 100%;
+  	height: 100%;
+  	background-size: cover;
+  	background-position: 50% 50%;
+  	position: fixed;
+  	top: 0px;
+  	z-index:0;
+}
+@media (max-width: 858px){
+  /*/Tamaño celular*/
+  
+}
+
+/***/
+.loader {
+  font-size: 48px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #252525;
+  letter-spacing: 2px;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.loader::after {
+  content: 'FIJSAC';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #75c749;
+  text-shadow: 0 0 2px #75c749, 0 0 1px #75c749, 0 0 1px #75c749;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: animloader 6s linear infinite;
+  
+}
+
+@keyframes animloader {
+  0% {
+    height: 0%;
+  }
+
+  50% {
+    height: 100%;
+  }
+  
+  100% {
+    height: 0%;
+  }
+}
+
