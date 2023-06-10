@@ -6,3 +6,20 @@
 .table-wrapper-scroll-y {
     display: block;
 }
+
+.my-custom-scrollbar2 {
+    position: relative;
+    height: 20vh;
+    overflow: auto;
+}
+
+.my-custom-scrollbar3 {
+    position: relative;
+    height: 30vh;
+    overflow: auto;
+}
+.my-custom-scrollbar4 {
+    position: relative;
+    height: 14vh;
+    overflow: auto;
+}

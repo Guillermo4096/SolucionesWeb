@@ -18,7 +18,6 @@
 
     <!-- Custom styles for this template-->
     <link th:href="@{/css/gestion-admin.css}" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/css/other/styleusuario.css}">
     <!-- Icons fontawesome-->
     <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
 
@@ -61,7 +60,7 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
+            <li class="nav-item active ">
                 <a class="nav-link collapsed" th:href="@{/ventas/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
@@ -102,7 +101,7 @@
 
             <!-- Nav Item - Tables -->
             
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link collapsed" th:href="@{/usuario/}">
                     <i class="fa-solid fa-user"></i>
                     <span>Usuarios</span>
@@ -144,7 +143,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+                    
                     <h4 id="fechaActual" class="pt-2"></h4>
 
                     <!-- Topbar Navbar -->
@@ -168,93 +167,169 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                        <lord-icon
-                            src="https://cdn.lordicon.com/bhfjfgqz.json"
-                            trigger="loop"
-                            delay="2000"
-                            colors="primary:#75c749"
-                            state="hover"
-                            style="width:30px;height:30px">
-                        </lord-icon>
-                        <h1 class="h3 mb-0 text-gray-800  mr-auto ml-md-3 ">Editar Usuario </h1>
-                        <!-- Topbar Search -->
-                       
+                        <a href="/ventas/nuevaVenta">
+                            <i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #75c749; width: 30px;"></i>
+                        </a>
+                        <h1 class="h3 mb-0 text-gray-800 mr-auto ">Nueva Venta
+                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/hyhnpiza.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#75c749"
+                                style="width:30px;height:30px;padding-top: 5px">
+                            </lord-icon>
+                        </h1>
+                        
                     </div>
 
                     <!-- Table -->
-                    <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <input type="hidden" th:field="*{id}">
-
-                                <input th:field="*{idusuario}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
-                                aria-label="Search" aria-describedby="basic-addon2">
+                                
+                                <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                    <lord-icon
+                                        src="https://cdn.lordicon.com/hbvyhtse.json"
+                                        trigger="loop"
+                                        delay="2000"
+                                        colors="primary:#75c749"
+                                        style="width:23px;height:23px">
+                                    </lord-icon>
+                                    Nombre Completo</h1>
+                                <input  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese nombre completo"
+                                aria-label="Search" aria-describedby="basic-addon2" id="fechaInput" >
 
                                 <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                                     <lord-icon
-                                        src="https://cdn.lordicon.com/fbdgkenc.json"
+                                        src="https://cdn.lordicon.com/xxwwxrom.json"
                                         trigger="loop"
                                         delay="2000"
                                         colors="primary:#75c749"
                                         style="width:23px;height:23px">
                                     </lord-icon>
                                     DNI</h1>
-                                <input th:field="*{dni}" id='registrar_dni' type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese DNI"
+                                <input  type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese DNI"
                                 aria-label="Search" aria-describedby="basic-addon2">
-                                
+
                                 <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                                     <lord-icon
-                                        src="https://cdn.lordicon.com/kulwmpzs.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Nombres y Apellidos</h1>
-                                <input th:field="*{nombre}"  type="text" class="form-control bg-light border-1 small mt-3 input-text" placeholder="Ingrese nombres y apellidos"
-                                aria-label="Search" aria-describedby="basic-addon2" required>
-                                
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/diihvcfp.json"
+                                        src="https://cdn.lordicon.com/ehfubvwr.json"
                                         trigger="loop"
                                         delay="2000"
                                         colors="primary:#75c749"
                                         style="width:23px;height:23px">
                                     </lord-icon>
                                     Correo</h1>
-                                <input  th:field="*{correo}" type="email" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese correo"
-                                aria-label="Search" aria-describedby="basic-addon2" required>
-
+                                <input  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese stock"
+                                aria-label="Search" aria-describedby="basic-addon2" >
+                                
                                 <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                                     <lord-icon
-                                        src="https://cdn.lordicon.com/mxzuvjjs.json"
+                                        src="https://cdn.lordicon.com/egiwmiit.json"
                                         trigger="loop"
                                         delay="2000"
                                         colors="primary:#75c749"
                                         style="width:23px;height:23px">
                                     </lord-icon>
-                                    Contraseña</h1>
-                                <input th:field="*{contra}" type="text" class="form-control bg-light border-1 small mt-3 mb-5" placeholder="Ingrese contraseña"
-                                aria-label="Search" aria-describedby="basic-addon2" required>
-
+                                    Monto total a pagar</h1>
+                                    <input  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese monto total a pagar"
+                                    aria-label="text" aria-describedby="basic-addon2"  >
+        
                             </div>
                         </div>
                     
-                     <!-- Content Row -->
+                    <!-- Content Row -->
 
 
                         <div class="d-sm-flex justify-content-end mb-4">
-                            <button type="submit" class="d-sm-inline-block btn btn-primary shadow-sm">
-                                Guardar Cambios
+                            <button type="button" class="d-sm-inline-block btn btn-primary shadow-sm" data-toggle="modal" data-target="#myModal">
+                                Finalizar
                             </button>
+                            
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="myModalLabel">Advertencia</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="codigo">¿Está seguro que desea confirmar la venta?</label>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="confirmarDevolucion()">Confirmar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="confirmModalLabel">Venta Confirmada</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    <p>¿Estás seguro que deseas confirmar la devolución?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="mostrarAnimacion()">Sí</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <div class="modal fade" id="completionModal" tabindex="-1" role="dialog" aria-labelledby="completionModalLabel" data-backdrop="static" data-keyboard="false">
+                                <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="completionModalLabel">Devolución completada</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body d-flex justify-content-center align-items-center">
+                                    <div id="animationContainer">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon
+                                            src="https://cdn.lordicon.com/hbigeisx.json"
+                                            trigger="loop"
+                                            delay="500"
+                                            colors="primary:#75c749"
+                                            style="width:250px;height:250px">
+                                        </lord-icon>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                function confirmarDevolucion() {
+                                $('#confirmModal').modal('hide');
+                                $('#completionModal').modal('show');
+                                setTimeout(function() {
+                                    $('#completionModal').modal('hide');
+                                    window.location.href = "http://localhost:8080/ventas/";
+                                }, 3000); // Cambia el valor de 3000 a la cantidad de milisegundos que desees que se muestre el icono antes de redirigir
+                                }
+                            </script>
                         </div>
-                    </form>
+
+
                 </div>
                 <!-- /.container-fluid -->
 
@@ -308,12 +383,8 @@
 
     <!-- Custom scripts for all pages -->
     <script th:src="@{/js/gestion-admin.min.js}"></script>
-    
-    <!-- DNI -->
-    <script th:src="@{/js/scriptValidacion.js}"></script>
     <script th:src="@{/js/scriptfecha.js}"></script>
-  
-
+    <script th:src="@{/js/scriptValidacion.js}"></script>  
 </body>
 
 </html>

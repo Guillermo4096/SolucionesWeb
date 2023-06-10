@@ -167,9 +167,11 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">
+                    <div class="d-sm-flex align-items-center  mb-4">
+                        <a href="/ventas/">
+                            <i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #75c749; width: 30px;"></i>
+                        </a>
+                        <h1 class="h3 mb-0 text-gray-800">Nueva Venta
                             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                             <lord-icon
                                 src="https://cdn.lordicon.com/hyhnpiza.json"
@@ -178,145 +180,145 @@
                                 colors="primary:#75c749"
                                 style="width:30px;height:30px;padding-top: 5px">
                             </lord-icon>
-                            Ventas</h1>
-                        <!-- Topbar Search -->
-                        <form
-                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
-                                    aria-label="Search" aria-describedby="basic-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button">
-                                        <i class="fas fa-search fa-sm"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+                        </h1>
                     </div>
 
+                    <!-- Page Heading -->
+                    
+
                     <!-- Table -->
-
-
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+
+                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <h1 class="h3 mb-0 text-gray-800">
+                                    Productos</h1>
+                                <!-- Topbar Search -->
+                                <form
+                                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-1 small" placeholder="Buscar"
+                                            aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar2">
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>CÓDIGO</th>
-                                            <th>FECHA</th>
+                                            <th>OPERACIÓN</th>
+                                            <th>SKU</th>
                                             <th>DESCRIPCIÓN</th>
-                                            <th>DNI</th>
-                                            <th>CONST.</th>
-                                            <th>MONTO</th>
+                                            <th>STOCK</th>
+                                            <th>ESTADO</th>
+                                            <th>PRECIO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-plus fa-xl " style="color: #75c749;"></i></td>
                                             <td>VEN-001</td>
                                             <td>2022-03-15</td>
                                             <td>Calibrador Digital</td>
-                                            <td>101</td>
                                             <td>10</td>
                                             <td>S/ 90.00</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-plus fa-xl text-center" style="color: #75c749;"></i></td>
                                             <td>VEN-002</td>
                                             <td>2022-03-16</td>
                                             <td>Sierra de perforación</td>
-                                            <td>102</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                                <h1 class="h3 mb-0 text-gray-800">
+                                    Vista Previa</h1>
+                            </div>
+
+                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar3">
+                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>OPERACIÓN</th>
+                                            <th>SKU</th>
+                                            <th>DESCRIPCIÓN</th>
+                                            <th>STOCK</th>
+                                            <th>ESTADO</th>
+                                            <th>PRECIO</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
+                                            <td>VEN-001</td>
+                                            <td>2022-03-15</td>
+                                            <td>Calibrador Digital</td>
+                                            <td>10</td>
+                                            <td>S/ 90.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
+                                            <td>VEN-002</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
                                             <td>15</td>
                                             <td>S/ 100.00</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
                                             <td>VEN-003</td>
-                                            <td>2022-04-10</td>
-                                            <td>Broca de rosca</td>
-                                            <td>103</td>
-                                            <td>20</td>
-                                            <td>S/ 48.60</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
                                             <td>VEN-004</td>
-                                            <td>2022-04-15</td>
-                                            <td>Juego de destornilladores de precisión</td>
-                                            <td>104</td>
-                                            <td>18</td>
-                                            <td>S/ 48.00</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
                                             <td>VEN-005</td>
-                                            <td>2022-04-15</td>
-                                            <td>metro de carpintero</td>
-                                            <td>105</td>
-                                            <td>9</td>
-                                            <td>S/ 50.50</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
                                         </tr>
                                         <tr>
+                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
                                             <td>VEN-006</td>
-                                            <td>2022-06-01</td>
-                                            <td>Portabrocas</td>
-                                            <td>106</td>
-                                            <td>12</td>
-                                            <td>S/ 39.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VEN-007</td>
-                                            <td>2022-06-03</td>
-                                            <td>Copa mandril</td>
-                                            <td>107</td>
-                                            <td>20</td>
-                                            <td>S/ 42.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VEN-008</td>
-                                            <td>2022-06-09</td>
-                                            <td>Tonillo de banco</td>
-                                            <td>108</td>
-                                            <td>5</td>
-                                            <td>S/ 166.80</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VEN-009</td>
-                                            <td>2022-10-11</td>
-                                            <td>Pinzas de sujeción</td>
-                                            <td>109</td>
-                                            <td>17</td>
-                                            <td>S/ 45.50</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VEN-010</td>
-                                            <td>2022-10-11</td>
-                                            <td>Pinzas de sujeción</td>
-                                            <td>109</td>
-                                            <td>17</td>
-                                            <td>S/ 45.50</td>
-                                        </tr>
-                                        <tr>
-                                            <td>VEN-011</td>
-                                            <td>2022-10-11</td>
-                                            <td>Pinzas de sujeción</td>
-                                            <td>109</td>
-                                            <td>17</td>
-                                            <td>S/ 45.50</td>
-                                        </tr><tr>
-                                            <td>VEN-012</td>
-                                            <td>2022-10-11</td>
-                                            <td>Pinzas de sujeción</td>
-                                            <td>109</td>
-                                            <td>17</td>
-                                            <td>S/ 45.50</td>
+                                            <td>2022-03-16</td>
+                                            <td>Sierra de perforación</td>
+                                            <td>15</td>
+                                            <td>S/ 100.00</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
+
                         </div>
                     </div>
                     <!-- Content Row -->
 
 
                     <div class="d-sm-flex justify-content-end mb-4">
-                        <a th:href="@{/ventas/nuevaVenta}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        <a th:href="@{/ventas/registrarNuevaVenta}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                                 class="fas fa-download fa-plus text-white-50"></i> Nueva Venta</a>
                     </div>
 
