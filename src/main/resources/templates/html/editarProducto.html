@@ -55,14 +55,21 @@
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item ">
                 <a class="nav-link collapsed" th:href="@{/dashboard}">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/ventas/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link collapsed" th:href="@{/devoluciones}">
-                    <i class="fas fa-fw fa-box"></i>
+                    <i class="fa-solid fa-inbox"></i>
                     <span>Devoluciones</span>
                 </a>
             </li>
@@ -76,17 +83,11 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/registro}">
-                    <i class="fas fa-fw fa-plus"></i>
-                    <span>Registro</span>
-                </a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/edicion}">
-                    <i class="fas fa-fw fa-pen"></i>
-                    <span>Edición</span>
+            <li class="nav-item active">
+                <a class="nav-link collapsed" th:href="@{/producto/}">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Productos</span>
                 </a>
             </li>
 
@@ -107,10 +108,10 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/producto/}">
-                    <i class="fa-solid fa-list"></i>
-                    <span>Productos</span>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/historial}">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Historial</span>
                 </a>
             </li>
 
@@ -142,6 +143,8 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+
+                    <h4 id="fechaActual" class="pt-2"></h4>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -301,7 +304,7 @@
     
     <!-- DNI -->
     <script th:src="@{/js/scriptValidacion.js}"></script>  
-
+    <script th:src="@{/js/scriptfecha.js}"></script>   
 </body>
 
 </html>

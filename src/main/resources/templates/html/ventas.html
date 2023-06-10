@@ -10,14 +10,16 @@
     <meta name="author" content="">
 
     <title>FIJSAC | Gestión</title>
-    <link rel="shortcut icon" href="../assets/ico/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" th:href="@{/assets/ico/logo.ico}" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/gestion-admin.css" rel="stylesheet">
+    <link th:href="@{/css/gestion-admin.css}" rel="stylesheet">
+    <link th:href="@{/css/styletable.css}" rel="stylesheet">
+
     <!-- Icons fontawesome-->
     <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
 
@@ -32,9 +34,9 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="gestion.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/gestion.html}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <img id="logoDash" src="../assets/ico/logo.ico" alt="logo">
+                    <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
                 </div>
             </a>
             <br>
@@ -53,16 +55,23 @@
             </div>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link collapsed" th:href="@{/dashboard}">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link collapsed" th:href="@{/ventas/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link collapsed" th:href="@{/devoluciones}">
-                    <i class="fas fa-fw fa-box"></i>
+                    <i class="fa-solid fa-inbox"></i>
                     <span>Devoluciones</span>
                 </a>
             </li>
@@ -76,17 +85,11 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/registro}">
-                    <i class="fas fa-fw fa-plus"></i>
-                    <span>Registro</span>
-                </a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/edicion}">
-                    <i class="fas fa-fw fa-pen"></i>
-                    <span>Edición</span>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/producto/}">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Productos</span>
                 </a>
             </li>
 
@@ -107,10 +110,10 @@
                 </a>
             </li>
 
-            <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/producto/}">
-                    <i class="fa-solid fa-list"></i>
-                    <span>Productos</span>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/historial}">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Historial</span>
                 </a>
             </li>
 
@@ -143,11 +146,13 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <h4 id="fechaActual" class="pt-2"></h4>
+
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            <a class="nav-link dropdown-toggle" th:href="@{/#}" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline small">Bienvenido, Nombre</span>
                                 <i class="fas fa-user" style="color: #000000;"></i>
@@ -164,7 +169,16 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Ventas</h1>
+                        <h1 class="h3 mb-0 text-gray-800">
+                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/hyhnpiza.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#75c749"
+                                style="width:30px;height:30px;padding-top: 5px">
+                            </lord-icon>
+                            Ventas</h1>
                         <!-- Topbar Search -->
                         <form
                             class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -185,16 +199,16 @@
 
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Número</th>
-                                            <th>Fecha</th>
-                                            <th>Producto</th>
-                                            <th>SKU</th>
-                                            <th>Stock</th>
-                                            <th>Monto</th>
+                                            <th>CÓDIGO</th>
+                                            <th>FECHA</th>
+                                            <th>DESCRIPCIÓN</th>
+                                            <th>DNI</th>
+                                            <th>CONST.</th>
+                                            <th>MONTO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -270,6 +284,29 @@
                                             <td>17</td>
                                             <td>S/ 45.50</td>
                                         </tr>
+                                        <tr>
+                                            <td>VEN-010</td>
+                                            <td>2022-10-11</td>
+                                            <td>Pinzas de sujeción</td>
+                                            <td>109</td>
+                                            <td>17</td>
+                                            <td>S/ 45.50</td>
+                                        </tr>
+                                        <tr>
+                                            <td>VEN-011</td>
+                                            <td>2022-10-11</td>
+                                            <td>Pinzas de sujeción</td>
+                                            <td>109</td>
+                                            <td>17</td>
+                                            <td>S/ 45.50</td>
+                                        </tr><tr>
+                                            <td>VEN-012</td>
+                                            <td>2022-10-11</td>
+                                            <td>Pinzas de sujeción</td>
+                                            <td>109</td>
+                                            <td>17</td>
+                                            <td>S/ 45.50</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -279,7 +316,7 @@
 
 
                     <div class="d-sm-flex justify-content-end mb-4">
-                        <a href="#" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        <a th:href="@{/ventas/nuevaVenta}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                                 class="fas fa-download fa-plus text-white-50"></i> Nueva Venta</a>
                     </div>
 
@@ -321,21 +358,23 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                    <a class="btn btn-primary" href="login.html">Cerrar Sesión</a>
+                    <a class="btn btn-primary" th:href="@{/login.html}">Cerrar Sesión</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../js/jquery.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
 
     <!-- Core plugin JavaScript
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
 
     <!-- Custom scripts for all pages -->
-    <script src="../js/gestion-admin.min.js"></script>
+    <script th:src="@{/js/gestion-admin.min.js}"></script>
+    <script th:src="@{/js/scriptfecha.js}"></script>
+
 </body>
 
 </html>

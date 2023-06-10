@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FIJSAC | Gestión</title>
+    <link rel="shortcut icon" th:href="@{/assets/ico/logo.ico}" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+     <link th:href="@{/css/gestion-admin.css}" rel="stylesheet">
+     <link th:href="@{/css/styletable.css}" rel="stylesheet">
+     <link rel="stylesheet" th:href="@{/css/other/styleusuario.css}">
+    <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/gestion.html}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
+                </div>
+            </a>
+            <br>
+            <div class="sidebar-brand">
+                Gestión
+            </div>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Operaciones
+            </div>
+            <li class="nav-item active">
+                <a class="nav-link collapsed" th:href="@{/dashboard}">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Ventas</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Devoluciones</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Productos
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/producto/}">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Sistema
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/usuario/}">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/historial}">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Historial</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <br><br><br><br><br><br><br><br><br><br><br>
+            <li class="nav-item">
+                <a class="nav-link collapsed" th:href="@{/login}">
+                   <i class="fas fa-fw fa-box" aria-hidden="true"></i>
+                   <span>  Cerrar Sesión</span>
+                </a>
+            </li>
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <h4 id="fechaActual" class="pt-2"></h4>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" th:href="@{/#}" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline small">Bienvenido, Pedro Pérez</span>
+                                <i class="fas fa-user" style="color: #000000;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                         <div class="d-sm-flex align-items-center justify-content-between  ">
+                            <h1 class="h3 mb-0  text-gray-800">
+                                DASHBOARD</h1>
+                        </div>
+                        <h5 class=" mb-0  text-gray-800 mb-4">Ferretería Industrial Jorge S.A.C</h5>
+                    <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card mb-4">
+                            <div class="card-body" style="display: flex;">
+                              <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                              <lord-icon
+                                src="https://cdn.lordicon.com/bhfjfgqz.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#75c749"
+                                style="width:100px;height:80px">
+                              </lord-icon>
+                              <div class="ml-md-3">
+                                <h3>ÚLTIMO INICIO DE SESIÓN</h3> 
+                                <h3 class="verde">16 - 05 - 20026 11:58:04</h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card mb-4">
+                            <div class="card-body" style="display: flex;">
+                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/hyhnpiza.json"
+                                    trigger="loop"
+                                    delay="2000"
+                                    colors="primary:#75c749"
+                                    style="width:100px;height:80px">
+                                </lord-icon>
+                                <div class="ml-md-3 h">
+                                  <h3>PRODUCTOS VENDIDOS HOY</h3>
+                                  <h3 class="verde">5</h3>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <div class="card mb-4">
+                            <div class="card-body" style="display: flex;">
+                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/iiixgoqp.json"
+                                    trigger="loop"
+                                    delay="2000"
+                                    colors="primary:#75c749"
+                                    style="width:250px;height:250px">
+                                </lord-icon>
+                              <div class="ml-md-3">
+                                <h5>INFORMACIÓN DE ULTIMA VENTA</h5>
+                                <h5>CÓDIGO</h5>  
+                                <h5 class="verde">VEN-00001</h5>
+                                <h5>FECHA</h5>
+                                <h5 class="verde">16 - 05 - 2023 15:15:30</h5>
+                                <h5>MONTO TOTAL</h5>
+                                <h5 class="verde">S/. 90.00</h5>  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6">
+                          <div class="card mb-4">
+                            <div class="card-body" style="display: flex;">
+                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/hbigeisx.json"
+                                    trigger="loop"
+                                    delay="2000"
+                                    colors="primary:#75c749"
+                                    style="width:250px;height:250px">
+                                </lord-icon>
+                              <div class="ml-md-3">
+                                <h5>PRODUCTO MÁS VENDIDO</h5>
+                                <h5>CÓDIGO</h5>  
+                                <h5 class="verde">P00001</h5>
+                                <h5>PRODUCTO</h5>
+                                <h5 class="verde">Juego de destronilladores</h5>
+                                <h5>PRECIO</h5>
+                                <h5 class="verde">S/. 90.00</h5>  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card mb-4">
+                        <div class="card-body">
+                            <h1 class="h3 mb-0  text-gray-800 mb-3">
+                                INFORMACIÓN DE ÚLTIMA DEVOLUCIÓN</h1>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th >CÓDIGO</th>
+                                            <th>FECHA</th>
+                                            <th>DESCRIPCIÓN</th>
+                                            <th>DNI</th>
+                                            <th>CONS.</th>
+                                            <th>MONTO</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="verde">R0001</td>
+                                            <td>2022-03-15</td>
+                                            <td>Inicio de sesión en el sistema</td>
+                                            <td class="verde">Ninguno</td>
+                                            <td>F0000001</td>
+                                            <td>S/. 90.00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto ">
+                        <span>FIJSAC | Grupo 2 - Soluciones Web</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de cerrar sesión?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona 'Cerrar Sesión' para confirmar o 'Cancelar' para volver a la
+                    aplicación".
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" th:href="@{/login.html}">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/gestion-admin.min.js}"></script>
+    <script th:src="@{/js/scriptfecha.js}"></script>
+</body>
+
+</html>

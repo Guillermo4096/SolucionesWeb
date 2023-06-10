@@ -13,10 +13,7 @@ public class InicioController {
     public String login(){
         return "login";
     }
-    @RequestMapping("/dashboard")
-    public String dashboard(){
-        return "/html/ventas";
-    }
+    
     @RequestMapping("/devoluciones")
     public String devoluciones(){
         return "/html/gestion";
@@ -28,6 +25,16 @@ public class InicioController {
     @RequestMapping("/edicion")
     public String edit(){
         return "/html/edit";
+    }
+
+    @RequestMapping("/historial")
+    public String historial(){
+        return "/html/historial";
+    }
+    
+    @RequestMapping("/dashboard")
+    public String dashboard(){
+        return "/html/dashboard";
     }
 
 }
