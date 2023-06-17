@@ -41,15 +41,15 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
             <hr class="sidebar-divider">
@@ -78,6 +78,14 @@
                     <span>Historial</span>
                 </a>
             </li>
+
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
+                </a>
+            </li>
+
             <hr class="sidebar-divider">
             <br><br><br><br><br><br><br><br><br><br><br>
              <li class="nav-item">
@@ -115,7 +123,7 @@
                                     colors="primary:#75c749"
                                     style="width:30px;height:30px;padding-top: 5px">
                                 </lord-icon>
-                                Devoluciones</h1>
+                                Proveedores</h1>
                             <form
                                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
@@ -135,118 +143,20 @@
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>CÓDIGO </th>
-                                            <th>FECHA</th>
-                                            <th>DESCRIPCIÓN</th>
-                                            <th>DNI</th>
-                                            <th>CONS.</th>
-                                            <th>MONTO</th>
+                                            <th>ID </th>
+                                            <th>RUC</th>
+                                            <th>NOMBRE</th>
+                                            <th>DIRECCIÓN</th>
+                                            <th>TELEFONO</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="verde">R0001</td>
-                                            <td>2022-03-15</td>
-                                            <td>Inicio de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000001</td>
-                                            <td class="verde">S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0002</td>
-                                            <td>2022-03-15</td>
-                                            <td>Registro de un nuevo producto</td>
-                                            <td>P00002</td>
-                                            <td>F0000002</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0003</td>
-                                            <td>2022-03-15</td>
-                                            <td>Edición de un producto</td>
-                                            <td>P00003</td>
-                                            <td>F0000003</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0004</td>
-                                            <td>2022-03-15</td>
-                                            <td>Eliminación de un producto</td>
-                                            <td>P00004</td>
-                                            <td>F0000004</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0005</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva venta</td>
-                                            <td>VEN-00001</td>
-                                            <td>F0000005</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0006</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva devolución</td>
-                                            <td>DEV-00001</td>
-                                            <td>F0000006</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0007</td>
-                                            <td>2022-03-15</td>
-                                            <td>Cierre de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000007</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0008</td>
-                                            <td>2022-03-15</td>
-                                            <td>Registro de un nuevo producto</td>
-                                            <td>P00008</td>
-                                            <td>F0000008</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0009</td>
-                                            <td>2022-03-15</td>
-                                            <td>Eliminación de un producto</td>
-                                            <td>P00009</td>
-                                            <td>F0000009</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0010</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva venta</td>
-                                            <td>VEN-00002</td>
-                                            <td>F0000010</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0011</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva devolución</td>
-                                            <td>DEV-00002</td>
-                                            <td>F0000011</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0012</td>
-                                            <td>2022-03-15</td>
-                                            <td>Inicio de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000012</td>
-                                            <td>S/. 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0013</td>
-                                            <td>2022-03-15</td>
-                                            <td>Cierre de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000013</td>
-                                            <td>S/. 90.00</td>
+                                        <tr th:each="item: ${listaProveedor}">
+                                            <td class="verde" th:text="${item.id}"></td>
+                                            <td th:text="${item.ruc}"></td>
+                                            <td th:text="${item.nombre}"></td>
+                                            <td th:text="${item.direc}"></td>
+                                            <td th:text="${item.tel}"></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -256,7 +166,7 @@
                     <!-- Content Row -->
                     <div class="d-sm-flex justify-content-end mb-4">
                         <button th:href="@{#}" type="button" class="d-sm-inline-block btn btn-primary shadow-sm" data-toggle="modal" data-target="#myModal">
-                            <i class="fas fa-download fa-plus text-white-50"></i>Nueva Devolución
+                            <i class="fas fa-download fa-plus text-white-50"></i>Nuevo Proveedor
                         </button>
                         
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

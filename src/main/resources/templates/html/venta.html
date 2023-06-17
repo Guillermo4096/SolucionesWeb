@@ -63,16 +63,16 @@
             </li>
 
             <li class="nav-item active">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
 
@@ -114,6 +114,13 @@
                 <a class="nav-link collapsed" th:href="@{/historial}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
+                </a>
+            </li>
+
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
 
@@ -167,11 +174,9 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-sm-flex align-items-center  mb-4">
-                        <a href="/ventas/">
-                            <i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #75c749; width: 30px;"></i>
-                        </a>
-                        <h1 class="h3 mb-0 text-gray-800">Nueva Venta
+                    <!-- Page Heading -->
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">
                             <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                             <lord-icon
                                 src="https://cdn.lordicon.com/hyhnpiza.json"
@@ -180,145 +185,65 @@
                                 colors="primary:#75c749"
                                 style="width:30px;height:30px;padding-top: 5px">
                             </lord-icon>
-                        </h1>
+                            Ventas</h1>
+                        <!-- Topbar Search -->
+                        <form
+                            class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
+                                    aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
 
-                    <!-- Page Heading -->
-                    
-
                     <!-- Table -->
+
                     <div class="card mb-4">
                         <div class="card-body">
-
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">
-                                    Productos</h1>
-                                <!-- Topbar Search -->
-                                <form
-                                    class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-1 small" placeholder="Buscar"
-                                            aria-label="Search" aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
-                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar2">
+                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>OPERACIÓN</th>
-                                            <th>SKU</th>
+                                            <th>ID</th>
+                                            <th>CÓDIGO VENTA</th>
+                                            <th>FECHA</th>
                                             <th>DESCRIPCIÓN</th>
-                                            <th>STOCK</th>
-                                            <th>ESTADO</th>
-                                            <th>PRECIO</th>
+                                            <th>CANTIDAD</th>
+                                            <th>MONTO</th>
+                                            <th>OPCIONES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-plus fa-xl " style="color: #75c749;"></i></td>
-                                            <td>VEN-001</td>
-                                            <td>2022-03-15</td>
-                                            <td>Calibrador Digital</td>
-                                            <td>10</td>
-                                            <td>S/ 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-plus fa-xl text-center" style="color: #75c749;"></i></td>
-                                            <td>VEN-002</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
+                                        <tr th:each="item: ${listaVenta}">
+                                            <td class="verde" th:text="${item.id}"></td>
+                                            <td th:text="${item.cod}"></td>
+                                            <td th:text="${item.fech}"></td>
+                                            <td th:text="${item.des}"></td>
+                                            <td th:text="${item.can}"></td>
+                                            <td th:text="${item.mon}"></td>
+                                            <td style="width: 14%">
+                                                <a class="btn btn-primary" th:href="@{/venta/editarVenta/} + ${item.id}">
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a class="btn btn-danger" th:href="@{/venta/eliminar/} + ${item.id}" onclick="return confirm('Desea eliminar el producto?')">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            </td>
                                         </tr>
                                         
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                                <h1 class="h3 mb-0 text-gray-800">
-                                    Vista Previa</h1>
-                            </div>
-
-                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar3">
-                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>OPERACIÓN</th>
-                                            <th>SKU</th>
-                                            <th>DESCRIPCIÓN</th>
-                                            <th>STOCK</th>
-                                            <th>ESTADO</th>
-                                            <th>PRECIO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-001</td>
-                                            <td>2022-03-15</td>
-                                            <td>Calibrador Digital</td>
-                                            <td>10</td>
-                                            <td>S/ 90.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-002</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-003</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-004</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-005</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center"><i class="fa-regular fa-square-minus fa-xl" style="color: #75c749;"></i></td>
-                                            <td>VEN-006</td>
-                                            <td>2022-03-16</td>
-                                            <td>Sierra de perforación</td>
-                                            <td>15</td>
-                                            <td>S/ 100.00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                     </div>
                     <!-- Content Row -->
 
 
                     <div class="d-sm-flex justify-content-end mb-4">
-                        <a th:href="@{/ventas/registrarNuevaVenta}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                        <a th:href="@{/venta/nuevoVenta}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
                                 class="fas fa-download fa-plus text-white-50"></i> Nueva Venta</a>
                     </div>
 

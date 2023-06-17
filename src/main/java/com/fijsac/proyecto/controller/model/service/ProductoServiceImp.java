@@ -33,4 +33,9 @@ public class ProductoServiceImp implements IProductoService {
     public Producto buscarProducto(Long id) {
         return productoDAO.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Producto> mostrarProductoOrdenado() {
+        return productoDAO.findAllByOrderByReferencia();
+    }
 }

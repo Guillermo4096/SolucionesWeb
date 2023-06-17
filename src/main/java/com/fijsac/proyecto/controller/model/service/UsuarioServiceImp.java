@@ -33,6 +33,11 @@ public class UsuarioServiceImp implements IUsuarioService {
     public Usuario buscarUsuario(Long id) {
         return usuarioDAO.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Usuario> mostrarUsuarioOrdenado() {
+        return usuarioDAO.findAllByOrderByNombre();
+    }
     
     
 }

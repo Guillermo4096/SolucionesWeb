@@ -64,16 +64,16 @@
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
 
@@ -115,6 +115,13 @@
                 <a class="nav-link collapsed" th:href="@{/historial}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
+                </a>
+            </li>
+
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
 
@@ -210,7 +217,7 @@
                                     <thead>
                                         <tr>
                                             <th>CÓDIGO</th>
-                                            <th>CÓDIGO DE USUARIO</th>
+                                            <th>USUARIO</th>
                                             <th>DNI</th>
                                             <th>NOMBRE Y APELLIDO</th>
                                             <th>CORREO</th>
@@ -226,9 +233,9 @@
                                             <td th:text="${item.correo}"></td>
                                             <td style="width: 14%">
                                                 <a class="btn btn-primary" th:href="@{/usuario/editarUsuario/} + ${item.id}">
-                                                    <i class="fa fa-pencil" aria-hidden="true"></i>Editar</a>
+                                                    <i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 <a class="btn btn-danger" th:href="@{/usuario/eliminar/} + ${item.id}" onclick="return confirm('Desea eliminar el usuario?')">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>Eliminar</a>
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>

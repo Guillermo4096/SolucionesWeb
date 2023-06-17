@@ -9,4 +9,7 @@ public interface IUsuarioService {
     public List<Usuario> mostrarUsuario();
     public void eliminarUsuario(Long id);
     public Usuario buscarUsuario(Long id);
+
+    public List<Usuario> mostrarUsuarioOrdenado();
+
 }

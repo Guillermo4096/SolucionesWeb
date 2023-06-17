@@ -26,7 +26,7 @@ create table producto(
     estado varchar(13) not null,
     precio decimal(10,2) not null,
     id_prov int not null,
-    foreign key (id_prov) references proveedor(id_prov)
+    foreign key (id_prov) references proveedor(id_prov) on delete cascade
 );
 
 create table usuario(
@@ -44,13 +44,13 @@ create table venta(
     cod_us int not null,
     id_cli int not null,
     fecha datetime not null,
-    descripcion varchar(400) not null,
+    descripcion varchar(400),
     cantidad int not null,
     correo varchar(80),
-    monto decimal(10,2) not null,
-    foreign key (cod_prod) references producto(cod_prod),
-    foreign key (cod_us) references usuario(cod),
-    foreign key (id_cli) references cliente(id_cli)
+    monto decimal(10,2),
+    foreign key (cod_prod) references producto(cod_prod) on delete cascade,
+    foreign key (cod_us) references usuario(cod) on delete cascade,
+    foreign key (id_cli) references cliente(id_cli) on delete cascade
 );
 create table historial(
 	cod int auto_increment primary key,
@@ -60,7 +60,7 @@ create table historial(
     codigo varchar(8),
     usuario varchar(8) not null,
     cod_us int,
-    foreign key(cod_us) references usuario(cod)
+    foreign key(cod_us) references usuario(cod) on delete cascade
 );
 /*Triggers*/
 DELIMITER $$
@@ -99,6 +99,33 @@ begin
 	set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));
 end$$
 DELIMITER ;
+
+/*CALCULAR MONTO DE VENTA*/
+/**/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS ingresar_monto_venta$$
+CREATE PROCEDURE ingresar_monto_venta(IN r int)
+BEGIN
+	declare UcodVen int;
+    declare UcodProdVen int;
+    declare precioProd decimal(10,2);
+    declare descProd varchar(500);
+    declare UcantidadVen int;
+    declare Nmonto decimal(10,2);
+    
+	set UcodVen=(SELECT cod from venta order by cod desc limit 1);
+    set UcodProdVen=(select cod_prod from venta order by cod desc limit 1);
+    set precioProd=(select precio from producto where cod_prod=UcodProdVen);
+    set UcantidadVen=(select cantidad from venta order by cod desc limit 1);
+    set Nmonto=(precioProd*UcantidadVen);
+    set descProd=(select descripcion from producto where cod_prod=UcodProdVen);
+    UPDATE venta set monto=Nmonto where cod=UcodVen;
+    UPDATE venta set descripcion=(concat(UcantidadVen, 'x ', descProd)) where cod=UcodVen;
+    /*set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));*/
+END
+$$
+
+/*CALL ingresar_monto_venta(0);*/
 /*REGISTROS DE PRUEBA*/
 /*
 
@@ -155,8 +182,8 @@ INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('FRANCISCO', 'PACHE
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('MARIA DEL CARMEN', 'AWAD VAZQUEZ', '92002784', '987604732');
 
 
-insert into venta(cod_prod, cod_us, id_cli, fecha, cantidad, descripcion, monto) values
-(1, 1, 1, now(), 3, '3x Super B Llave Dinamométrica Digital 1/4´´ 3-30Nm', 2141.97);
+insert into venta(cod_prod, cod_us, id_cli, fecha, cantidad, descripcion) values
+(1, 1, 1, now(), 3, '3x Super B Llave Dinamométrica Digital 1/4´´ 3-30Nm');
 
 use sistema_fijsac;
 select * from usuario;
@@ -164,18 +191,3 @@ select * from cliente;
 select * from venta;
 select * from producto;
 select * from proveedor;
-/*
-
-NO EJECUTAR AÚN
-
-*/
-/*VENTAS*/
-/*
-insert into venta (cod_prod, cod_us, fecha, descripcion, dni, cliente, monto) values 
-(1, 1, now(), 'Esta es una prueba para venta', '12345678', 'jose gonzales lamas', 100.95);
-insert into venta (cod_prod, cod_us, fecha, descripcion, dni, cliente, monto) values 
-(1, 1, now(), 'Esta es una prueba para venta', '12345678', 'jose gonzales lamas', 95.95);
-/*HISTORIAL*/
-/*
-insert into historial (fecha, operacion, codigo, usuario, cod_us) values (now(), 'Esta es una prueba de operación', 'P0000001', 'F0000001', 1);
-*/
