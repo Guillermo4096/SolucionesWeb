@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>FIJSAC | Gestión</title>
+    <link rel="shortcut icon" th:href="@{/assets/ico/logo.ico}" type="image/x-icon">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link th:href="@{/css/gestion-admin.css}" rel="stylesheet">
+    <link th:href="@{/css/styletable.css}" rel="stylesheet">
+    <link th:href="@{/css/other/styleusuario.css}" rel="stylesheet">
+    <link th:href="@{/css/other/stylescroll.css}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="page-top" class="sidebar-toggled">
+    <div id="wrapper">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/dashboard}">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
+                </div>
+            </a>
+            <br>
+            <div class="sidebar-brand">
+                Gestión
+            </div>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Operaciones
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/dashboard}">
+                    <i class="fa-solid fa-file-lines"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Ventas</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Proveedores</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Productos
+            </div>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/producto/}">
+                    <i class="fa-solid fa-list"></i>
+                    <span>Productos</span>
+                </a>
+            </li>
+             <hr class="sidebar-divider">
+             <div class="sidebar-heading">
+                 Sistema
+             </div>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" th:href="@{/usuario/}">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Usuarios</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/historial}">
+                    <i class="fa-solid fa-file"></i>
+                    <span>Historial</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider">
+            <br><br><br><br><br><br><br><br><br><br><br>
+             <li class="nav-item">
+                 <a class="nav-link collapsed" th:href="@{/login}">
+                    <i class="fas fa-fw fa-box" aria-hidden="true"></i>
+                    <span>  Cerrar Sesión</span>
+                 </a>
+             </li>
+        
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <h4 id="fechaActual" class="pt-2"></h4>
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" th:href="@{/#}" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline small">Bienvenido, Nombre</span>
+                                <i class="fas fa-user" style="color: #000000;"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="container-fluid">
+                    <div class="d-sm-flex align-items-center  mb-4">
+                        <a href="/venta/">
+                            <i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #75c749; width: 30px;"></i>
+                        </a>
+                        <h1 class="h3 mb-0 text-gray-800">Nueva Venta
+                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/hyhnpiza.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#75c749"
+                                style="width:30px;height:30px;padding-top: 5px">
+                            </lord-icon>
+                        </h1>
+                    </div>
+                    <form th:action="@{/venta/guardar}" th:object="${venta}" method="post">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                        style="width:23px;height:23px"></lord-icon>
+                                        DNI del cliente
+                                    </h1>
+                                    <select th:field="*{cliente.id}" class="from-select form-control bg-light border-1 small mt-3"
+                                        onmousedown="if(this.options.length>20){this.size=20;}" onchange='this.size=0;' onblur="this.size=0;">
+                                        <option th:each="item: ${listaCliente}" th:value="${item.id}" th:text="${item.dn}"></option>
+                                    </select>
+
+                                    <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                        style="width:23px;height:23px"></lord-icon>
+                                        Usuario
+                                    </h1>
+                                    <select th:field="*{usuario.id}" class="from-select form-control bg-light border-1 small mt-3"
+                                        onmousedown="if(this.options.length>20){this.size=20;}" onchange='this.size=0;' onblur="this.size=0;">
+                                        <option th:each="item: ${listaUsuario}" th:value="${item.id}" th:text="${item.nombre}"></option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <div class="d-sm-flex  margintop1">
+                                        <a th:href="@{/cliente/}" class="d-sm-inline-block btn btn-primary shadow-sm"><i
+                                                class="fas fa-download fa-plus text-white-50"></i> Agregar</a>
+                                    </div>
+                                    <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon src="https://cdn.lordicon.com/usxfmtjg.json" trigger="loop" delay="2000" colors="primary:#75c749" style="width:23px;height:23px"></lord-icon>
+                                        Cantidad
+                                    </h1>
+                                    <input th:field="*{can}" type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese cantidad" aria-label="Search" aria-describedby="basic-addon2" required>
+                                    <input th:field="*{fech}" type="hidden" class="form-control bg-light border-1 small mt-3" aria-label="Search" aria-describedby="basic-addon2" id="fechaInput" readonly>
+                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                                    <script>
+                                        var fechaInput = document.getElementById('fechaInput');
+                                        var fechaActual = moment().format('YYYY-MM-DD');
+                                        fechaInput.value = fechaActual;
+                                    </script>
+                                    <input th:field="*{cod}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese stock" aria-label="Search" aria-describedby="basic-addon2" required>
+                                </div>
+                            </div>
+                            <div class="d-sm-flex align-items-center  mt-4">
+                                <h1 class="h3 mb-0 text-gray-800">Lista de Productos
+                                </h1>
+                            </div>
+                            <div class="">
+                                <select name="" id="" th:field="*{producto.id}" class="form-select form-control bg-light border-1 small mt-3"
+                                onfocus="this.size=5;" onblur="this.size=1;" onchange="this.size=1; this.blur();">
+                                    <option th:each="item: ${listaProducto}" th:value="${item.id}" th:text="${item.desc}"></option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-sm-flex justify-content-end mb-4">
+                        <a th:href="@{/venta/}" class="d-sm-inline-block btn btn-primary shadow-sm">
+                            Regresar</a>
+                            <button type="submit" class="ml-3 d-sm-inline-block btn btn-primary shadow-sm">
+                                Registrar
+                            </button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto ">
+                        <span>FIJSAC | Grupo 2 - Soluciones Web</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de cerrar sesión?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona 'Cerrar Sesión' para confirmar o 'Cancelar' para volver a la
+                    aplicación".
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" th:href="@{/login.html}">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+    <!-- Core plugin JavaScript
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
+
+    <!-- Custom scripts for all pages -->
+    <script th:src="@{/js/gestion-admin.min.js}"></script>
+    <script th:src="@{/js/scriptfecha.js}"></script>
+
+</body>
+
+</html>

@@ -21,7 +21,7 @@
 <body id="page-top" class="sidebar-toggled">
     <div id="wrapper">
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/gestion.html}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/dashboard}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
                 </div>
@@ -41,15 +41,15 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
             <hr class="sidebar-divider">
@@ -76,6 +76,12 @@
                 <a class="nav-link collapsed" th:href="@{/historial}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
             <hr class="sidebar-divider">

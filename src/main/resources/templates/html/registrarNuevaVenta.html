@@ -61,16 +61,16 @@
             </li>
 
             <li class="nav-item active ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
 
@@ -112,6 +112,13 @@
                 <a class="nav-link collapsed" th:href="@{/historial}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
+                </a>
+            </li>
+
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
 
@@ -167,7 +174,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <a href="/ventas/nuevaVenta">
+                        <a href="/venta/nuevaVenta">
                             <i class="fa-solid fa-circle-arrow-left fa-xl" style="color: #75c749; width: 30px;"></i>
                         </a>
                         <h1 class="h3 mb-0 text-gray-800 mr-auto ">Nueva Venta
@@ -323,7 +330,7 @@
                                 $('#completionModal').modal('show');
                                 setTimeout(function() {
                                     $('#completionModal').modal('hide');
-                                    window.location.href = "http://localhost:8080/ventas/";
+                                    window.location.href = "http://localhost:8080/venta/";
                                 }, 3000); // Cambia el valor de 3000 a la cantidad de milisegundos que desees que se muestre el icono antes de redirigir
                                 }
                             </script>

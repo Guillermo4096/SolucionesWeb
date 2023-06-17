@@ -8,6 +8,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -32,7 +34,11 @@ import jakarta.persistence.TemporalType;
         private String est;
         @Column(name="precio")
         private String pre;
-        
+        @ManyToOne
+        @JoinColumn(name = "id_prov")
+        Proveedor proveedor;
+
+
         public Long getId() {
             return id;
         }
@@ -74,6 +80,12 @@ import jakarta.persistence.TemporalType;
         }
         public void setPre(String pre) {
             this.pre = pre;
+        }
+        public Proveedor getProveedor() {
+            return proveedor;
+        }
+        public void setProveedor(Proveedor proveedor) {
+            this.proveedor = proveedor;
         }
 
     }

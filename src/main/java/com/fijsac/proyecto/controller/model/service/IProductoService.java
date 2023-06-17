@@ -9,4 +9,6 @@ public interface IProductoService {
     public List<Producto> mostrarProducto();
     public void eliminarProducto(Long id);
     public Producto buscarProducto(Long id);
+
+    public List<Producto> mostrarProductoOrdenado();
 }

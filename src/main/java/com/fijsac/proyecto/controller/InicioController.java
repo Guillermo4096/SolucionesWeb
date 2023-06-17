@@ -13,11 +13,7 @@ public class InicioController {
     public String login(){
         return "login";
     }
-    
-    @RequestMapping("/devoluciones")
-    public String devoluciones(){
-        return "/html/gestion";
-    }
+
     @RequestMapping("/registro")
     public String registro(){
         return "/html/registro";

@@ -61,16 +61,16 @@
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
 
@@ -115,6 +115,12 @@
                 </a>
             </li>
 
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
+                </a>
+            </li>
             <hr class="sidebar-divider">
 
             <br><br><br><br><br><br><br><br><br><br><br>
@@ -185,59 +191,62 @@
                     <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
                         <div class="card mb-4">
                             <div class="card-body">
-                                <input type="hidden" th:field="*{id}">
-
-                                <input th:field="*{referencia}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
-                                aria-label="Search" aria-describedby="basic-addon2">
-
-                                <input th:field="*{fech}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
-                                aria-label="Search" aria-describedby="basic-addon2">
-
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
+                              <input type="hidden" th:field="*{id}">
+                              
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/kulwmpzs.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Descripción</h1>
-                                <input th:field="*{desc}"  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción"
-                                aria-label="Search" aria-describedby="basic-addon2">
+                                    <lord-icon src="https://cdn.lordicon.com/kulwmpzs.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                      style="width:23px;height:23px"></lord-icon>
+                                    Descripción
+                                  </h1>
+                                  <input th:field="*{desc}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción"
+                                    aria-label="Search" aria-describedby="basic-addon2" required>
+                                    
+                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/usxfmtjg.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                      style="width:23px;height:23px"></lord-icon>
+                                    Stock
+                                  </h1>
+                                  <input th:field="*{tock}" type="number" class="form-control bg-light border-1 small mt-3 input-text" placeholder="Ingrese stock"
+                                    aria-label="Search" aria-describedby="basic-addon2" required>
+                                    
+                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                    <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                      style="width:23px;height:23px"></lord-icon>
+                                    Precio
+                                  </h1>
+                                  <input th:field="*{pre}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio"
+                                    aria-label="Search" aria-describedby="basic-addon2" required>
+                                </div>
                                 
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                <div class="col-md-6">
+                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/usxfmtjg.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                Stock</h1>
-
-                                <input th:field="*{tock}"  type="number" class="form-control bg-light border-1 small mt-3 input-text" placeholder="Ingrese stock"
-                                aria-label="Search" aria-describedby="basic-addon2" required>
-
-                                <input th:field="*{est}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
+                                    <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                      style="width:23px;height:23px"></lord-icon>
+                                    Proveedor
+                                  </h1>
+                                  <select th:field="*{proveedor.id}" class="from-select form-control bg-light border-1 small mt-3"
+                                    onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;">
+                                    <option th:each="item: ${listaProveedor}" th:value="${item.id}" th:text="${item.nombre}"></option>
+                                  </select>
+                                </div>
+                              </div>
+                              
+                              <input th:field="*{referencia}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
                                 aria-label="Search" aria-describedby="basic-addon2">
-
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/diihvcfp.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Precio</h1>
-                                <input  th:field="*{pre}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio"
-                                aria-label="Search" aria-describedby="basic-addon2" required>
-
+                              
+                              <input th:field="*{fech}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
+                                aria-label="Search" aria-describedby="basic-addon2">
+                              
+                              <input th:field="*{est}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese "
+                                aria-label="Search" aria-describedby="basic-addon2">
                             </div>
-                        </div>
+                          </div>
                     
                      <!-- Content Row -->
 

@@ -61,16 +61,16 @@
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/devoluciones}">
+                <a class="nav-link collapsed" th:href="@{/proveedor/}">
                     <i class="fa-solid fa-inbox"></i>
-                    <span>Devoluciones</span>
+                    <span>Proveedores</span>
                 </a>
             </li>
 
@@ -112,6 +112,13 @@
                 <a class="nav-link collapsed" th:href="@{/historial}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
+                </a>
+            </li>
+
+            <li class="nav-item  ">
+                <a class="nav-link collapsed" th:href="@{/cliente/}">
+                    <i class="fa-solid fa-inbox"></i>
+                    <span>Clientes</span>
                 </a>
             </li>
 
@@ -181,87 +188,87 @@
 
                     <!-- Table -->
                     <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
-                        <div class="card mb-4">
+                       <div class="card mb-4">
                             <div class="card-body">
-                                
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/qjuahhae.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Fecha</h1>
-                                <input th:field="*{fech}"  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción"
-                                aria-label="Search" aria-describedby="basic-addon2" id="fechaInput" readonly>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon src="https://cdn.lordicon.com/qjuahhae.json" trigger="loop" delay="2000" colors="primary:#75c749" style="width:23px;height:23px"></lord-icon>
+                                            Fecha
+                                        </h1>
+                                        <input th:field="*{fech}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción" aria-label="Search" aria-describedby="basic-addon2" id="fechaInput" readonly>
 
-                                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                                        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 
-                                <script>
-                                    // Obtener la referencia al campo de entrada de fecha
-                                    var fechaInput = document.getElementById('fechaInput');
-                                
-                                    // Obtener la fecha actual en la zona horaria de Perú y formatearla
-                                    var fechaActual = moment().format('YYYY-MM-DD');
-                                
-                                    // Establecer el valor del campo de entrada de fecha
-                                    fechaInput.value = fechaActual;
-                                </script>
+                                        <script>
+                                            // Obtener la referencia al campo de entrada de fecha
+                                            var fechaInput = document.getElementById('fechaInput');
 
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/kulwmpzs.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Descripción</h1>
-                                <input th:field="*{desc}"  type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción"
-                                aria-label="Search" aria-describedby="basic-addon2">
+                                            // Obtener la fecha actual en la zona horaria de Perú y formatearla
+                                            var fechaActual = moment().format('YYYY-MM-DD');
 
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/usxfmtjg.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Stock</h1>
-                                <input th:field="*{tock}" type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese stock"
-                                aria-label="Search" aria-describedby="basic-addon2" >
-                                
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/egiwmiit.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Estado</h1>
-                                    <input th:field="*{est}" type="text" class="form-control bg-light border-1 small mt-3" 
-                                    aria-label="Search" aria-describedby="basic-addon2" id="EstadoInput"  >
+                                            // Establecer el valor del campo de entrada de fecha
+                                            fechaInput.value = fechaActual;
+                                        </script>
 
-                                <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon
-                                        src="https://cdn.lordicon.com/diihvcfp.json"
-                                        trigger="loop"
-                                        delay="2000"
-                                        colors="primary:#75c749"
-                                        style="width:23px;height:23px">
-                                    </lord-icon>
-                                    Precio</h1>
-                                <input th:field="*{pre}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio"
-                                aria-label="Search" aria-describedby="basic-addon2" >
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon src="https://cdn.lordicon.com/kulwmpzs.json" trigger="loop" delay="2000" colors="primary:#75c749" style="width:23px;height:23px"></lord-icon>
+                                            Descripción
+                                        </h1>
+                                        <input th:field="*{desc}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción" aria-label="Search" aria-describedby="basic-addon2" required>
 
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon src="https://cdn.lordicon.com/usxfmtjg.json" trigger="loop" delay="2000" colors="primary:#75c749" style="width:23px;height:23px"></lord-icon>
+                                            Stock
+                                        </h1>
+                                        <input th:field="*{tock}" type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese stock" aria-label="Search" aria-describedby="basic-addon2" required>
+                                        
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/egiwmiit.json"
+                                                trigger="loop"
+                                                delay="2000"
+                                                colors="primary:#75c749"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            Estado</h1>
+                                            <input th:field="*{est}" type="text" class="form-control bg-light border-1 small mt-3" 
+                                            aria-label="Search" aria-describedby="basic-addon2" id="EstadoInput" readonly>
+
+                                            <script>
+                                                var EstadoInput = document.getElementById('EstadoInput');
+                                            
+                                                EstadoInput.value = "Disponible";
+                                            </script>
+
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749" style="width:23px;height:23px"></lord-icon>
+                                            Precio
+                                        </h1>
+                                        <input th:field="*{pre}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio" aria-label="Search" aria-describedby="basic-addon2" required>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/diihvcfp.json"
+                                                trigger="loop"
+                                                delay="2000"
+                                                colors="primary:#75c749"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            Proveedor</h1>
+                                            <select th:field="*{proveedor.id}" class="from-select form-control bg-light border-1 small mt-3" onmousedown="if(this.options.length>8){this.size=8;}"  onchange='this.size=0;' onblur="this.size=0;">
+                                                <option th:each="item: ${listaProveedor}" th:value="${item.id}" th:text="${item.nombre}"></option>
+                                            </select>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     
