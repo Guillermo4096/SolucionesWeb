@@ -1,4 +1,4 @@
-/********************/
+/********/
 /*BASE DE DATOS SW*/
 create database sistema_fijsac;
 use sistema_fijsac;
@@ -62,7 +62,7 @@ create table historial(
     cod_us int,
     foreign key(cod_us) references usuario(cod) on delete cascade
 );
-/*Triggers*/
+/Triggers/
 DELIMITER $$
 create trigger sku_cod before insert on producto for each row
 begin
@@ -100,7 +100,7 @@ begin
 end$$
 DELIMITER ;
 
-/*CALCULAR MONTO DE VENTA*/
+/CALCULAR MONTO DE VENTA/
 /**/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ingresar_monto_venta$$
@@ -121,11 +121,33 @@ BEGIN
     set descProd=(select descripcion from producto where cod_prod=UcodProdVen);
     UPDATE venta set monto=Nmonto where cod=UcodVen;
     UPDATE venta set descripcion=(concat(UcantidadVen, 'x ', descProd)) where cod=UcodVen;
-    /*set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));*/
+    
+END
+$$
+use sistema_fijsac;
+DELIMITER $$
+DROP PROCEDURE IF EXISTS editar_monto_venta$$
+CREATE PROCEDURE editar_monto_venta(IN a int)
+BEGIN
+	declare UcodVenA int;
+    declare UcodProdVenA int;
+    declare precioProdA decimal(10,2);
+    declare descProdA varchar(500);
+    declare UcantidadVenA int;
+    declare NmontoA decimal(10,2);
+    
+	
+    set UcodProdVenA = (SELECT cod_prod FROM venta where cod= a );
+    set precioProdA = (SELECT precio FROM producto WHERE cod_prod = UcodProdVenA);
+    set UcantidadVenA = (SELECT cantidad FROM venta where cod = a);
+    set NmontoA = (precioProdA * UcantidadVenA);
+    set descProdA = (SELECT descripcion FROM producto WHERE cod_prod = UcodProdVenA);
+    update venta SET monto = NmontoA WHERE cod = a ;
+    UPDATE venta SET descripcion = CONCAT(UcantidadVenA, 'x ', descProdA) WHERE cod = a;
 END
 $$
 
-/*CALL ingresar_monto_venta(0);*/
+
 /*REGISTROS DE PRUEBA*/
 /*
 

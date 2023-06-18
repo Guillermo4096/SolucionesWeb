@@ -9,4 +9,7 @@ import com.fijsac.proyecto.controller.model.entidad.Venta;
 public interface IVentaDAO extends CrudRepository<Venta,Long> {
     @Procedure(name = "ingresar_monto_venta")
     Void ingresar_monto_venta(@Param("r") int r);
+
+    @Procedure(name = "editar_monto_venta")
+    Void editar_monto_venta(@Param("a") Long a);
 }
