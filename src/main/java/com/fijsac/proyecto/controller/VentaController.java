@@ -13,6 +13,7 @@ import com.fijsac.proyecto.controller.model.service.IProductoService;
 import com.fijsac.proyecto.controller.model.service.IUsuarioService;
 import com.fijsac.proyecto.controller.model.service.IVentaService;
 
+
 @Controller
 @RequestMapping("/venta")
 public class VentaController {
@@ -31,7 +32,15 @@ public class VentaController {
 
     @RequestMapping("/")
     public String venta(Model model){
+        Venta venta = new Venta();
+        model.addAttribute("venta", venta);
+
         model.addAttribute("listaVenta", ventaService.mostrarVenta());
+
+        model.addAttribute("listaProducto", productoService.mostrarProductoOrdenado());
+        model.addAttribute("listaUsuario", usuarioService.mostrarUsuarioOrdenado());
+        model.addAttribute("listaCliente", clienteService.mostrarClienteOrdenado());
+
         return "/html/venta";
     }
 
@@ -41,7 +50,7 @@ public class VentaController {
         return "redirect:/venta/";
     }
 
-    
+  
     @RequestMapping("/nuevoVenta")
     public String nuevoVenta(Model model){
         Venta venta = new Venta();
@@ -60,12 +69,21 @@ public class VentaController {
         return "redirect:/venta/";
     }
 
+    @RequestMapping(value = "/guardarEditar/{id}", method = RequestMethod.POST)
+    public String guardarEditar(Venta venta){
+        ventaService.guardarVenta(venta);
+        return "redirect:/venta/";
+    }
+    
+
     @RequestMapping("/editarVenta/{id}")
     public String editarVenta(@PathVariable(value = "id") Long id, Model model){
         Venta venta =new Venta();
         venta = ventaService.buscarVenta(id);
+
         model.addAttribute("venta", venta);
         model.addAttribute("listaVenta", ventaService.mostrarVenta());
+
 
         model.addAttribute("listaProducto", productoService.mostrarProductoOrdenado());
         model.addAttribute("listaUsuario", usuarioService.mostrarUsuarioOrdenado());

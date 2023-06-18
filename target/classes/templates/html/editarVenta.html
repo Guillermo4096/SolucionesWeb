@@ -195,32 +195,32 @@
                               
                               <div class="row">
                                 <div class="col-md-6">
-                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon src="https://cdn.lordicon.com/kulwmpzs.json" trigger="loop" delay="2000" colors="primary:#75c749"
-                                      style="width:23px;height:23px"></lord-icon>
-                                    Descripción
-                                  </h1>
-                                  <input th:field="*{des}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese descripción"
+                                  
+                                    <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                        style="width:23px;height:23px"></lord-icon>
+                                        DNI del cliente
+                                    </h1>
+                                    <select th:field="*{cliente.id}" class="from-select form-control bg-light border-1 small mt-3"
+                                        onmousedown="if(this.options.length>20){this.size=20;}" onchange='this.size=0;' onblur="this.size=0;">
+                                        <option th:each="item: ${listaCliente}" th:value="${item.id}" th:text="${item.dn}"></option>
+                                    </select>
+
+
+                                    <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                        <lord-icon src="https://cdn.lordicon.com/usxfmtjg.json" trigger="loop" delay="2000" colors="primary:#75c749"
+                                          style="width:23px;height:23px"></lord-icon>
+                                        Cantidad
+                                      </h1>
+                                      <input th:field="*{can}" type="number" class="form-control bg-light border-1 small mt-3 " placeholder="Ingrese stock"
+                                        aria-label="Search" aria-describedby="basic-addon2" required>
+                                        
+
+                                    <input th:field="*{usuario.id}" type="hidden" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio"
                                     aria-label="Search" aria-describedby="basic-addon2" required>
                                     
-                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon src="https://cdn.lordicon.com/usxfmtjg.json" trigger="loop" delay="2000" colors="primary:#75c749"
-                                      style="width:23px;height:23px"></lord-icon>
-                                    Cantidad
-                                  </h1>
-                                  <input th:field="*{can}" type="number" class="form-control bg-light border-1 small mt-3 input-text" placeholder="Ingrese stock"
-                                    aria-label="Search" aria-describedby="basic-addon2" required>
-                                    
-                                  <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                    <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
-                                      style="width:23px;height:23px"></lord-icon>
-                                    Monto
-                                  </h1>
-                                  <input th:field="*{mon}" type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese precio"
-                                    aria-label="Search" aria-describedby="basic-addon2" required>
                                 </div>
                                 
                                 <div class="col-md-6">
@@ -231,29 +231,10 @@
                                         Producto
                                       </h1>
                                       <select th:field="*{producto.id}" class="from-select form-control bg-light border-1 small mt-3"
-                                        onmousedown="if(this.options.length>20){this.size=20;}" onchange='this.size=0;' onblur="this.size=0;">
-                                        <option th:each="item: ${listaProducto}" th:value="${item.id}" th:text="${item.referencia}"></option>
+                                        onmousedown="if(this.options.length>5){this.size=5;}" onchange='this.size=0;' onblur="this.size=0;">
+                                        <option th:each="item: ${listaProducto}" th:value="${item.id}" th:text="${item.desc}"></option>
                                       </select>
-                                      <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                        <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
-                                          style="width:23px;height:23px"></lord-icon>
-                                        Usuario
-                                      </h1>
-                                      <select th:field="*{usuario.id}" class="from-select form-control bg-light border-1 small mt-3"
-                                        onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;">
-                                        <option th:each="item: ${listaUsuario}" th:value="${item.id}" th:text="${item.dni}"></option>
-                                      </select>
-                                      <h1 class="h3 mb-0 text-gray-800 mt-3">
-                                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                        <lord-icon src="https://cdn.lordicon.com/diihvcfp.json" trigger="loop" delay="2000" colors="primary:#75c749"
-                                          style="width:23px;height:23px"></lord-icon>
-                                        Cliente
-                                      </h1>
-                                      <select th:field="*{cliente.id}" class="from-select form-control bg-light border-1 small mt-3"
-                                        onmousedown="if(this.options.length>8){this.size=8;}" onchange='this.size=0;' onblur="this.size=0;">
-                                        <option th:each="item: ${listaCliente}" th:value="${item.id}" th:text="${item.nom}"></option>
-                                      </select>
+                                      
                                 </div>
                               </div>
                               

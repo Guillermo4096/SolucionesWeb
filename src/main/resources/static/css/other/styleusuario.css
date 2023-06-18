@@ -25,3 +25,7 @@
 .margintop1{
     margin-top: 64px;
 }
+
+.hidden-field {
+    display: none;
+  }

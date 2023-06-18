@@ -23,6 +23,7 @@ public class VentaServiceImp implements IVentaService {
     public void guardarVenta(Venta venta) {
         ventaDAO.save(venta);
         ventaDAO.ingresar_monto_venta(0);
+
     }
 
     @Override
@@ -34,5 +35,7 @@ public class VentaServiceImp implements IVentaService {
     public Venta buscarVenta(Long id) {
         return ventaDAO.findById(id).orElse(null);
     }
+
+   
     
 }
