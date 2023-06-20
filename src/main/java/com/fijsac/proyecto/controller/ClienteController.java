@@ -31,6 +31,7 @@ public class ClienteController {
         clienteService.guardarCliente(cliente);
         return "redirect:/cliente/";
     }
+
     @RequestMapping("/EditarCliente/{id}")
     public String editar(@PathVariable(value="id") Long id, Model model){
         Cliente cliente = new Cliente();
@@ -41,6 +42,7 @@ public class ClienteController {
         model.addAttribute("listaCliente", clienteService.mostrarCliente());
         return "html/cliente";
     }
+    
     @RequestMapping("/EliminarCliente/{id}")
     public String eliminar(@PathVariable(value = "id") Long id){
         clienteService.eliminarCliente(id);

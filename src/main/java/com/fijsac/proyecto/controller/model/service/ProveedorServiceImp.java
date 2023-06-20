@@ -17,12 +17,26 @@ public class ProveedorServiceImp implements IProveedorService{
     @Override
     public List<Proveedor> mostrarProveedor() {
         return (List<Proveedor>)proveedorDAO.findAll();
-
     }
     
     @Override
     public List<Proveedor> mostrarProveedorOrdenado() {
         return proveedorDAO.findAllByOrderByNombre();
 
+    }
+
+    @Override
+    public Proveedor buscarProveedor(Long id){
+        return proveedorDAO.findById(id).orElse(null);
+    }
+
+    @Override
+    public void guardarProveedor(Proveedor proveedor){
+        proveedorDAO.save(proveedor);
+    }
+
+    @Override
+    public void eliminarProveedor(Long id){
+        proveedorDAO.deleteById(id);
     }
 }
