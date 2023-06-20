@@ -112,127 +112,114 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="container-fluid">
+
+                <form th:action="@{/proveedor/guardar}" th:object="${proveedor}" method="post">
+                    <div class="container-fluid">
                         <div class="d-sm-flex align-items-center justify-content-between mb-4 ">
                             <h1 class="h3 mb-0  text-gray-800">
-                                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
-                                <lord-icon
-                                    src="https://cdn.lordicon.com/ifqmqwui.json"
-                                    trigger="loop"
-                                    delay="2000"
-                                    colors="primary:#75c749"
-                                    style="width:30px;height:30px;padding-top: 5px">
-                                </lord-icon>
-                                Proveedores</h1>
-                            <form
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
+                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                            <lord-icon
+                                src="https://cdn.lordicon.com/ifqmqwui.json"
+                                trigger="loop"
+                                delay="2000"
+                                colors="primary:#75c749"
+                                style="width:30px;height:30px;padding-top: 5px">
+                            </lord-icon>
+                            Proveedores</h1>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar5">
+                                    <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>RUC</th>
+                                                <th>NOMBRE</th>
+                                                <th>DIRECCIÓN</th>
+                                                <th>TELÉFONO</th>
+                                                <th>OPCIONES</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="item: ${listaProveedor}">
+                                                <td class="verde" th:text="${item.id}"></td>
+                                                <td th:text="${item.ruc}"></td>
+                                                <td th:text="${item.nombre}"></td>
+                                                <td th:text="${item.direc}"></td>
+                                                <td th:text="${item.tel}"></td>
+                                                <td style="width: 14%">
+                                                    <a class="btn btn-primary" th:href="@{/proveedor/EditarProveedor/} + ${item.id}">
+                                                        <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                    <a class="btn btn-danger" th:href="@{/proveedor/EliminarProveedor/} + ${item.id}" onclick="return confirm('¿Desea eliminar al proveedor?')">
+                                                        <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <h1 class="h3 mb-0 text-gray-800 mb-3 mt-5" th:text="${titulo}"></h1>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input type="hidden" name="" id="" th:field="*{id}"/>
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/kulwmpzs.json"
+                                                trigger="loop"
+                                                delay="2000"
+                                                colors="primary:#75c749"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            RUC </h1>
+                                        <input th:field="*{ruc}" id='registrar_ruc' type="text" class="form-control bg-light border-1 small mt-3 input-text" placeholder="Ingrese RUC"
                                         aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/winbdcbm.json"
+                                                trigger="hover"
+                                                colors="primary:#75c749"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            Dirección</h1>
+                                        <input th:field="*{direc}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese Nombre"
+                                        aria-label="Search" aria-describedby="basic-addon2" required>                                        
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/uiakkykh.json"
+                                                trigger="hover"
+                                                colors="primary:#75c749"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            Nombre</h1>
+                                        <input th:field="*{nombre}" type="text" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese Nombre"
+                                        aria-label="Search" aria-describedby="basic-addon2" required>   
+                                        <h1 class="h3 mb-0 text-gray-800 mt-3">
+                                            <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                                            <lord-icon
+                                                src="https://cdn.lordicon.com/ssvybplt.json"
+                                                trigger="hover"
+                                                colors="primary:#75c749"
+                                                state="hover-phone-ring"
+                                                style="width:23px;height:23px">
+                                            </lord-icon>
+                                            Teléfono</h1>
+                                        <input th:field="*{tel}" type="number" class="form-control bg-light border-1 small mt-3" placeholder="Ingrese número telefónico"
+                                        aria-label="Search" aria-describedby="basic-addon2" required maxlength="9">                                     
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>ID </th>
-                                            <th>RUC</th>
-                                            <th>NOMBRE</th>
-                                            <th>DIRECCIÓN</th>
-                                            <th>TELEFONO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="item: ${listaProveedor}">
-                                            <td class="verde" th:text="${item.id}"></td>
-                                            <td th:text="${item.ruc}"></td>
-                                            <td th:text="${item.nombre}"></td>
-                                            <td th:text="${item.direc}"></td>
-                                            <td th:text="${item.tel}"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
                             </div>
+                        </div>
+                        <div class="d-sm-flex justify-content-end mb-4">
+                            <button type="submit" class="d-sm-inline-block btn btn-primary shadow-sm" th:text="${btnFormC}">
+                            </button>
                         </div>
                     </div>
-                    <!-- Content Row -->
-                    <div class="d-sm-flex justify-content-end mb-4">
-                        <button th:href="@{#}" type="button" class="d-sm-inline-block btn btn-primary shadow-sm" data-toggle="modal" data-target="#myModal">
-                            <i class="fas fa-download fa-plus text-white-50"></i>Nuevo Proveedor
-                        </button>
-                        
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="myModalLabel">Ingresar código de venta</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                <div class="form-group">
-                                    <label for="codigo">Código de venta:</label>
-                                    <input type="text" id="codigo" name="codigo" class="form-control">
-                                </div>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#confirmModal">Confirmar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-                        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="confirmModalLabel">Confirmar devolución</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                <p>¿Estás seguro que deseas confirmar la devolución?</p>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#completionModal">Confirmar</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-                        <div class="modal fade" id="completionModal" tabindex="-1" role="dialog" aria-labelledby="completionModalLabel">
-                            <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                <h5 class="modal-title" id="completionModalLabel">Devolución completada</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                                </div>
-                                <div class="modal-body">
-                                <p>La devolución ha sido completada.</p>
-                                </div>
-                                <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Aceptar</button>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                </form>
                 <!-- /.container-fluid -->
 
             </div>
