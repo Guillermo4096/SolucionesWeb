@@ -218,25 +218,25 @@
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>CÓDIGO</th>
                                             <th>SKU</th>
                                             <th>FECHA</th>
                                             <th>DESCRIPCIÓN</th>
                                             <th>STOCK</th>
                                             <th>ESTADO</th>
                                             <th>PRECIO</th>
+                                            <th>PROVEEDOR</th>
                                             <th>OPCIONES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="item: ${listaProducto}">
-                                            <td th:text="${item.id}"></td>
                                             <td th:text="${item.referencia}"></td>
                                             <td th:text="${item.fech}"></td>
                                             <td th:text="${item.desc}"></td>
                                             <td th:text="${item.tock}"></td>
                                             <td th:text="${item.est}"></td>
                                             <td th:text="${item.pre}"></td>
+                                            <td th:text="${item.proveedor.nombre}"></td>
                                             <td style="width: 14%">
                                                 <a class="btn btn-primary" th:href="@{/producto/editarProducto/} + ${item.id}">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i></a>
