@@ -188,10 +188,10 @@
                     </div>
 
                     <!-- Table -->
-                    <form th:action="@{/venta/guardar}" th:object="${venta}" method="post">
+                    <form th:action="@{/venta/guardarEditar}" th:object="${venta}" method="post">
                         <div class="card mb-4">
                             <div class="card-body">
-                              <input type="hidden" th:field="*{id}">
+                              <input type="hidden" th:field="*{id}" name="idvent">
                               
                               <div class="row">
                                 <div class="col-md-6">

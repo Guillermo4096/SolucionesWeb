@@ -209,23 +209,25 @@
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>CÓDIGO VENTA</th>
                                             <th>FECHA</th>
+                                            <th>CLIENTE</th>
                                             <th>DESCRIPCIÓN</th>
                                             <th>CANTIDAD</th>
                                             <th>MONTO</th>
+                                            <th>VENDIDO POR</th>
                                             <th>OPCIONES</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="item: ${listaVenta}">
-                                            <td class="verde" th:text="${item.id}"></td>
                                             <td th:text="${item.cod}"></td>
                                             <td th:text="${item.fech}"></td>
+                                            <td th:text="${item.cliente.nom} +' '+ ${item.cliente.apel}"></td>
                                             <td th:text="${item.des}"></td>
                                             <td th:text="${item.can}"></td>
                                             <td th:text="${item.mon}"></td>
+                                            <td th:text="${item.usuario.nombre}"></td>
                                             <td style="width: 14%">
                                                 <a class="btn btn-primary" th:href="@{/venta/editarVenta/} + ${item.id}">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i></a>

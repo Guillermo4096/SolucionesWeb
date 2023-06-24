@@ -1,4 +1,4 @@
-/********/
+/********************/
 /*BASE DE DATOS SW*/
 create database sistema_fijsac;
 use sistema_fijsac;
@@ -62,32 +62,53 @@ create table historial(
     cod_us int,
     foreign key(cod_us) references usuario(cod) on delete cascade
 );
-/Triggers/
+/*Triggers*/
 DELIMITER $$
+DROP TRIGGER IF EXISTS sku_cod$$
 create trigger sku_cod before insert on producto for each row
 begin
-    declare contar int;
+	declare contar int;
+    declare maxpk int;
     
     set contar=(select count(*) from producto);
-	set new.sku=concat('P', LPAD(contar+1, 7, '0'));
+    IF(contar = 0) THEN
+		set new.sku=concat('P', LPAD(contar+1, 7, '0'));
+	ELSE
+        set maxpk=(SELECT MAX(cod_prod) FROM producto);
+        set new.sku=concat('P', LPAD(maxpk+1, 7, '0'));
+    END IF;
 end$$
 DELIMITER ;
 DELIMITER $$
+DROP TRIGGER IF EXISTS cod_us_trig$$
 create trigger cod_us_trig before insert on usuario for each row
 begin
-    declare contar int;
+	declare contar int;
+    declare maxpk int;
     
     set contar=(select count(*) from usuario);
-	set new.cod_us=concat('F', LPAD(contar+1, 7, '0'));
+    IF(contar = 0) THEN
+		set new.cod_us=concat('F', LPAD(contar+1, 7, '0'));
+	ELSE
+        set maxpk=(SELECT MAX(cod) FROM usuario);
+        set new.cod_us=concat('F', LPAD(maxpk+1, 7, '0'));
+    END IF;
 end$$
 DELIMITER ;
 DELIMITER $$
+DROP TRIGGER IF EXISTS cod_ven_trig$$
 create trigger cod_ven_trig before insert on venta for each row
 begin
     declare contar int;
+    declare maxpk int;
     
     set contar=(select count(*) from venta);
-	set new.cod_ven=concat('V', LPAD(contar+1, 7, '0'));
+    IF(contar = 0) THEN
+		set new.cod_ven=concat('V', LPAD(contar+1, 7, '0'));
+	ELSE
+        set maxpk=(SELECT MAX(cod) FROM VENTA);
+        set new.cod_ven=concat('V', LPAD(maxpk+1, 7, '0'));
+    END IF;
 end$$
 DELIMITER ;
 DELIMITER $$
@@ -100,7 +121,7 @@ begin
 end$$
 DELIMITER ;
 
-/CALCULAR MONTO DE VENTA/
+/*CALCULAR MONTO DE VENTA*/
 /**/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ingresar_monto_venta$$
@@ -121,7 +142,7 @@ BEGIN
     set descProd=(select descripcion from producto where cod_prod=UcodProdVen);
     UPDATE venta set monto=Nmonto where cod=UcodVen;
     UPDATE venta set descripcion=(concat(UcantidadVen, 'x ', descProd)) where cod=UcodVen;
-    
+    /*set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));*/
 END
 $$
 use sistema_fijsac;
@@ -147,7 +168,7 @@ BEGIN
 END
 $$
 
-
+/*CALL ingresar_monto_venta(0);*/
 /*REGISTROS DE PRUEBA*/
 /*
 
@@ -202,14 +223,11 @@ INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('VICTOR MANUEL', 'A
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('JUANA BAUTISTA', 'PARIENTE GARCIA', '66317439', '922844247');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('FRANCISCO', 'PACHECO HERRERA', '61796387', '938636242');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('MARIA DEL CARMEN', 'AWAD VAZQUEZ', '92002784', '987604732');
-
-
-insert into venta(cod_prod, cod_us, id_cli, fecha, cantidad, descripcion) values
-(1, 1, 1, now(), 3, '3x Super B Llave Dinamométrica Digital 1/4´´ 3-30Nm');
-
+/*
 use sistema_fijsac;
 select * from usuario;
 select * from cliente;
 select * from venta;
 select * from producto;
 select * from proveedor;
+*/

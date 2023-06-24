@@ -68,10 +68,10 @@ public class VentaController {
         ventaService.eliminarVenta(id);
         return "redirect:/venta/";
     }
-
-    @RequestMapping(value = "/guardarEditar/{id}", method = RequestMethod.POST)
+    
+    @RequestMapping(value = "/guardarEditar", method = RequestMethod.POST)
     public String guardarEditar(Venta venta){
-        ventaService.guardarVenta(venta);
+        ventaService.editarVenta(venta);
         return "redirect:/venta/";
     }
     
