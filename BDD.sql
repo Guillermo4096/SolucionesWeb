@@ -57,10 +57,7 @@ create table historial(
     cod_op varchar(8),
     fecha datetime not null,
     operacion varchar(50) not null,
-    codigo varchar(8),
-    usuario varchar(8) not null,
-    cod_us int,
-    foreign key(cod_us) references usuario(cod) on delete cascade
+    codigo varchar(20)
 );
 /*Triggers*/
 DELIMITER $$
@@ -111,17 +108,29 @@ begin
     END IF;
 end$$
 DELIMITER ;
+
+use sistema_fijsac;
 DELIMITER $$
-create trigger cod_op_trig before insert on historial for each row
+DROP TRIGGER IF EXISTS cod_hist_trig$$
+create trigger cod_hist_trig before insert on historial for each row
 begin
     declare contar int;
+    declare maxpk int;
     
     set contar=(select count(*) from historial);
-	set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));
+    IF(contar = 0) THEN
+		set new.cod_op=concat('R', LPAD(contar+1, 7, '0'));
+	ELSE
+        set maxpk=(SELECT MAX(cod) FROM historial);
+        set new.cod_op=concat('R', LPAD(maxpk+1, 7, '0'));
+    END IF;
 end$$
 DELIMITER ;
-
-/*CALCULAR MONTO DE VENTA*/
+/*
+=======================
+OPERACIONES CON VENTAS
+=======================
+*/
 /**/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS ingresar_monto_venta$$
@@ -223,7 +232,69 @@ INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('VICTOR MANUEL', 'A
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('JUANA BAUTISTA', 'PARIENTE GARCIA', '66317439', '922844247');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('FRANCISCO', 'PACHECO HERRERA', '61796387', '938636242');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('MARIA DEL CARMEN', 'AWAD VAZQUEZ', '92002784', '987604732');
+
 /*
+====================================================================
+REGISTRAR OPERACIONES CON TODAS LAS TABLAS (FUNCIONALIDAD HISTORIAL)
+====================================================================
+*/
+/*
+-Cliente
+-Producto
+-Proveedor
+-Usuario
+-Venta
+*/
+
+/*
+=================
+VENTA
+=================
+*/
+DELIMITER $$
+DROP PROCEDURE IF EXISTS regist_op_hist$$
+CREATE PROCEDURE regist_op_hist(operacion varchar(50), codigo varchar(50))
+BEGIN
+    
+    INSERT INTO HISTORIAL (fecha, operacion, codigo) VALUE (now(), operacion, codigo);
+END
+$$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS regist_nuev_prod$$
+CREATE PROCEDURE regist_nuev_prod(IN o int)
+BEGIN
+    declare sku varchar(20);
+    
+    set sku = (SELECT PRODUCTO.SKU from producto order by cod_prod desc limit 1);
+    INSERT INTO HISTORIAL (fecha, operacion, codigo) VALUE (now(), 'Nuevo producto registrado', sku);
+END
+$$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS regist_nuev_user$$
+CREATE PROCEDURE regist_nuev_user(IN o int)
+BEGIN
+    declare cod_us varchar(20);
+    
+    set cod_us = (SELECT USUARIO.cod_us from usuario order by cod desc limit 1);
+    INSERT INTO HISTORIAL (fecha, operacion, codigo) VALUE (now(), 'Nuevo usuario registrado', cod_us);
+END
+$$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS regist_nuev_vent$$
+CREATE PROCEDURE regist_nuev_vent(IN o int)
+BEGIN
+    declare cod_vent varchar(20);
+    
+    set cod_vent = (SELECT VENTA.cod_ven from venta order by cod desc limit 1);
+    INSERT INTO HISTORIAL (fecha, operacion, codigo) VALUE (now(), 'Nueva venta registrada', cod_vent);
+END
+$$
+
+/*
+drop database sistema_fijsac;
 use sistema_fijsac;
 select * from usuario;
 select * from cliente;

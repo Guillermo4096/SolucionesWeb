@@ -43,9 +43,10 @@ public class ClienteController {
         return "html/cliente";
     }
     
-    @RequestMapping("/EliminarCliente/{id}")
-    public String eliminar(@PathVariable(value = "id") Long id){
-        clienteService.eliminarCliente(id);
+    @RequestMapping("/EliminarCliente/{id}/{dni}")
+    public String eliminar(@PathVariable(value = "id") Long id,
+                            @PathVariable(value = "dni") String dni){
+        clienteService.eliminarCliente(id, dni);
         return "redirect:/cliente/";
     }
 }

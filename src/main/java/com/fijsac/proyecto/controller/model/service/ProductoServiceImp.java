@@ -17,6 +17,7 @@ public class ProductoServiceImp implements IProductoService {
     @Override
     public void guardarProducto(Producto producto){
         productoDAO.save(producto);
+        productoDAO.regist_nuev_prod(0);
     }
 
     @Override
@@ -27,6 +28,10 @@ public class ProductoServiceImp implements IProductoService {
     @Override
     public void eliminarProducto(Long id) {
         productoDAO.deleteById(id);
+        productoDAO.regist_op_hist(
+            "Producto Eliminado", 
+            "Ninguno"
+        );
     }
 
     @Override
@@ -37,5 +42,14 @@ public class ProductoServiceImp implements IProductoService {
     @Override
     public List<Producto> mostrarProductoOrdenado() {
         return productoDAO.findAllByOrderByReferencia();
+    }
+
+    @Override
+    public void editarProducto(Producto producto) {
+        productoDAO.save(producto);
+        productoDAO.regist_op_hist(
+            "Producto editado", 
+            producto.getReferencia()
+        );
     }
 }

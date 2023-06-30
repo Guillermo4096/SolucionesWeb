@@ -43,9 +43,10 @@ public class ProveedorController {
         return "html/proveedor";
     }
 
-    @RequestMapping("/EliminarProveedor/{id}")
-    public String eliminar(@PathVariable(value = "id") Long id){
-        proveedorService.eliminarProveedor(id);
+    @RequestMapping("/EliminarProveedor/{id}/{ruc}")
+    public String eliminar(@PathVariable(value = "id") Long id, 
+                            @PathVariable(value = "ruc") String ruc){
+        proveedorService.eliminarProveedor(id, ruc);
         return "redirect:/proveedor/";
     }
 }

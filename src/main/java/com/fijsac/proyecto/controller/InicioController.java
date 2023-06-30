@@ -23,10 +23,7 @@ public class InicioController {
         return "/html/edit";
     }
 
-    @RequestMapping("/historial")
-    public String historial(){
-        return "/html/historial";
-    }
+    
     
     @RequestMapping("/dashboard")
     public String dashboard(){

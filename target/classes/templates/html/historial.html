@@ -107,7 +107,7 @@
             </li>
 
             <li class="nav-item active ">
-                <a class="nav-link collapsed" th:href="@{/historial}">
+                <a class="nav-link collapsed" th:href="@{/historial/}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
                 </a>
@@ -197,120 +197,34 @@
                                 </div>
                             </form>
                         </div>
-                    <!-- Table -->
-                    <div class="card mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
-                                <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th >CÓDIGO OP.</th>
-                                            <th>FECHA</th>
-                                            <th>OPERACIÓN</th>
-                                            <th>CÓDIGO</th>
-                                            <th>USUARIO</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="verde">R0001</td>
-                                            <td>2022-03-15</td>
-                                            <td>Inicio de sesión en el sistema</td>
-                                            <td class="verde">Ninguno</td>
-                                            <td>F0000001</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0002</td>
-                                            <td>2022-03-15</td>
-                                            <td>Registro de un nuevo producto</td>
-                                            <td>P00002</td>
-                                            <td>F0000002</td>
-                                
-                                        </tr>
-                                        <tr>
-                                            <td>R0003</td>
-                                            <td>2022-03-15</td>
-                                            <td>Edición de un producto</td>
-                                            <td>P00003</td>
-                                            <td>F0000003</td>
-                                         
-                                        </tr>
-                                        <tr>
-                                            <td>R0004</td>
-                                            <td>2022-03-15</td>
-                                            <td>Eliminación de un producto</td>
-                                            <td>P00004</td>
-                                            <td>F0000004</td>
-                                        
-                                        </tr>
-                                        <tr>
-                                            <td>R0005</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva venta</td>
-                                            <td>VEN-00001</td>
-                                            <td>F0000005</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0006</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva devolución</td>
-                                            <td>DEV-00001</td>
-                                            <td>F0000006</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0007</td>
-                                            <td>2022-03-15</td>
-                                            <td>Cierre de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000007</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0008</td>
-                                            <td>2022-03-15</td>
-                                            <td>Registro de un nuevo producto</td>
-                                            <td>P00008</td>
-                                            <td>F0000008</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0009</td>
-                                            <td>2022-03-15</td>
-                                            <td>Eliminación de un producto</td>
-                                            <td>P00009</td>
-                                            <td>F0000009</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0010</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva venta</td>
-                                            <td>VEN-00002</td>
-                                            <td>F0000010</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0011</td>
-                                            <td>2022-03-15</td>
-                                            <td>Nueva devolución</td>
-                                            <td>DEV-00002</td>
-                                            <td>F0000011</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0012</td>
-                                            <td>2022-03-15</td>
-                                            <td>Inicio de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000012</td>
-                                        </tr>
-                                        <tr>
-                                            <td>R0013</td>
-                                            <td>2022-03-15</td>
-                                            <td>Cierre de sesión en el sistema</td>
-                                            <td>Ninguno</td>
-                                            <td>F0000013</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    <form action="" method="post" th:object="${Historia}">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">
+                                    <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>CÓDIGO OP.</th>
+                                                <th>FECHA</th>
+                                                <th>OPERACIÓN</th>
+                                                <th>CÓDIGO</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="item: ${listaHistorial}">
+                                                <td th:text="${item.cod_op}"></td>
+                                                <td th:text="${item.fecha}"></td>
+                                                <td th:text="${item.operacion}"></td>
+                                                <td th:text="${item.codigo}"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+                    <!-- Table -->
+                    
                     <!-- Content Row -->
 
 

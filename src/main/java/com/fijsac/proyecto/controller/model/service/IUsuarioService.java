@@ -6,6 +6,7 @@ import com.fijsac.proyecto.controller.model.entidad.Usuario;
 
 public interface IUsuarioService {
     public void guardarUsuario(Usuario usuario);
+    public void editarUsuario(Usuario usuario);
     public List<Usuario> mostrarUsuario();
     public void eliminarUsuario(Long id);
     public Usuario buscarUsuario(Long id);

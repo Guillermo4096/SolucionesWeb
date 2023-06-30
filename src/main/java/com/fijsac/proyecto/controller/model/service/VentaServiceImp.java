@@ -23,22 +23,25 @@ public class VentaServiceImp implements IVentaService {
     public void guardarVenta(Venta venta) {
         ventaDAO.save(venta);
         ventaDAO.ingresar_monto_venta(0);
-
+        ventaDAO.regist_nuev_vent(0);
     }
     
     @Override
     public void editarVenta(Venta venta) {
         ventaDAO.save(venta);
         ventaDAO.editar_monto_venta(venta.getId());
+        ventaDAO.regist_op_hist("Venta editada", venta.getCod());
     }
 
     @Override
-    public void eliminarVenta(Long id) {
+    public void eliminarVenta(Long id, Long cod_us) {
         ventaDAO.deleteById(id);
+        ventaDAO.regist_op_hist("Venta eliminada", "Ninguno");
     }
 
     @Override
     public Venta buscarVenta(Long id) {
         return ventaDAO.findById(id).orElse(null);
     }
+
 }

@@ -33,10 +33,20 @@ public class ProveedorServiceImp implements IProveedorService{
     @Override
     public void guardarProveedor(Proveedor proveedor){
         proveedorDAO.save(proveedor);
+        
+        proveedorDAO.regist_op_hist(
+            "Proveedor registrado o editado",
+            "Ninguno"
+        );
+        
     }
 
     @Override
-    public void eliminarProveedor(Long id){
+    public void eliminarProveedor(Long id, String ruc){
         proveedorDAO.deleteById(id);
+        proveedorDAO.regist_op_hist(
+            "Proveedor eliminado",
+            ruc
+        );
     }
 }
