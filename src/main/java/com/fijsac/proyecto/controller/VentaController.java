@@ -63,9 +63,9 @@ public class VentaController {
         return "/html/nuevoVenta";
     }
     
-    @RequestMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable(value = "id")Long id){
-        ventaService.eliminarVenta(id);
+    @RequestMapping("/eliminar/{id}/{cod_us}")
+    public String eliminar(@PathVariable(value = "id")Long id, @PathVariable(value = "cod_us")Long cod_us){
+        ventaService.eliminarVenta(id, cod_us);
         return "redirect:/venta/";
     }
     
@@ -104,16 +104,4 @@ public class VentaController {
 
         return "/html/nuevoCliente";
     }
-    
-    /*
-    @RequestMapping("/nuevaVenta")
-    public String nuevaVenta(){
-        return "/html/nuevaVenta";
-    }
-
-    @RequestMapping("/registrarNuevaVenta")
-    public String registrarNuevaVenta(){
-        return "/html/registrarNuevaVenta";
-    }
-    */
 }

@@ -27,6 +27,10 @@ public class ClienteServiveImp implements IClienteService{
     @Override
     public void guardarCliente(Cliente cliente) {
         clienteDAO.save(cliente);
+        clienteDAO.regist_op_hist(
+            "Cliente registrado o editado",
+            "Ninguno"
+        );
     }
 
     @Override
@@ -35,8 +39,12 @@ public class ClienteServiveImp implements IClienteService{
     }
 
     @Override
-    public void eliminarCliente(Long id) {
+    public void eliminarCliente(Long id, String dni) {
         clienteDAO.deleteById(id);
+        clienteDAO.regist_op_hist(
+            "Cliente eliminado",
+            dni
+        );
     }
     
 }

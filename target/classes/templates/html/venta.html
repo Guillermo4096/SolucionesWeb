@@ -111,7 +111,7 @@
             </li>
 
             <li class="nav-item  ">
-                <a class="nav-link collapsed" th:href="@{/historial}">
+                <a class="nav-link collapsed" th:href="@{/historial/}">
                     <i class="fa-solid fa-file"></i>
                     <span>Historial</span>
                 </a>
@@ -231,7 +231,7 @@
                                             <td style="width: 14%">
                                                 <a class="btn btn-primary" th:href="@{/venta/editarVenta/} + ${item.id}">
                                                     <i class="fa fa-pencil" aria-hidden="true"></i></a>
-                                                <a class="btn btn-danger" th:href="@{/venta/eliminar/} + ${item.id}" onclick="return confirm('Desea eliminar el producto?')">
+                                                <a class="btn btn-danger" th:href="@{/venta/eliminar/} + ${item.id} +'/'+${item.usuario.id}" onclick="return confirm('Desea eliminar el producto?')">
                                                     <i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>

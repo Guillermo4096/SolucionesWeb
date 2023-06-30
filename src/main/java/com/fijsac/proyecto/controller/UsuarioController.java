@@ -29,6 +29,11 @@ public class UsuarioController {
         usuarioService.guardarUsuario(usuario);
         return "redirect:/usuario/";
     }
+    @RequestMapping("/guardarEditar")
+    public String guardarEditar(Usuario usuario){
+        usuarioService.editarUsuario(usuario);
+        return "redirect:/usuario/";
+    }
 
     @RequestMapping("/nuevoUsuario")
     public String nuevoUsuario(Model model){

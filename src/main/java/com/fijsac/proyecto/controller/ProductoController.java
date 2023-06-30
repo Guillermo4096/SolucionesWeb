@@ -32,6 +32,12 @@ public class ProductoController {
         return "redirect:/producto/";
     }
 
+    @RequestMapping(value = "/guardarEditar", method = RequestMethod.POST)
+    public String guardarEditar(Producto producto){
+        productoService.editarProducto(producto);
+        return "redirect:/producto/";
+    }
+
     @RequestMapping("/nuevoProducto")
     public String nuevoProducto(Model model){
         Producto producto = new Producto();

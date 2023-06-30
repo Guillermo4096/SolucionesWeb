@@ -9,5 +9,5 @@ public interface IProveedorService {
     public List<Proveedor> mostrarProveedorOrdenado();
     public Proveedor buscarProveedor(Long id);
     public void guardarProveedor (Proveedor proveedor);
-    public void eliminarProveedor(Long id);
+    public void eliminarProveedor(Long id, String ruc);
 }

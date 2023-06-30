@@ -17,6 +17,7 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     public void guardarUsuario(Usuario usuario) {
         usuarioDAO.save(usuario);
+        usuarioDAO.regist_nuev_user(0);
     }
 
     @Override
@@ -27,6 +28,10 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Override
     public void eliminarUsuario(Long id) {
         usuarioDAO.deleteById(id);
+        usuarioDAO.regist_op_hist(
+            "Usuario Eliminado", 
+            "Ninguno"
+        );
     }
 
     @Override
@@ -38,6 +43,13 @@ public class UsuarioServiceImp implements IUsuarioService {
     public List<Usuario> mostrarUsuarioOrdenado() {
         return usuarioDAO.findAllByOrderByNombre();
     }
-    
-    
+
+    @Override
+    public void editarUsuario(Usuario usuario) {
+        usuarioDAO.save(usuario);
+        usuarioDAO.regist_op_hist(
+            "Usuario editado", 
+            usuario.getIdusuario()
+        );
+    }
 }
