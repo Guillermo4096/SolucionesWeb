@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fijsac.proyecto.controller.model.entidad.Venta;
 import com.fijsac.proyecto.controller.model.service.IClienteService;
@@ -45,8 +46,9 @@ public class VentaController {
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public String guardar(Venta venta){
-        ventaService.guardarVenta(venta);
+    public String guardar(Venta venta, RedirectAttributes flash){
+        String rpta = ventaService.guardarVenta(venta);
+        flash.addFlashAttribute("mensaje", rpta);
         return "redirect:/venta/";
     }
 

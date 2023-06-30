@@ -20,10 +20,25 @@ public class VentaServiceImp implements IVentaService {
     }
 
     @Override
-    public void guardarVenta(Venta venta) {
-        ventaDAO.save(venta);
-        ventaDAO.ingresar_monto_venta(0);
-        ventaDAO.regist_nuev_vent(0);
+    public String guardarVenta(Venta venta) {
+        int prodStock = ventaDAO.obtenerStockProducto(venta.getProducto().getId());
+        int solStock = Integer.parseInt(venta.getCan());
+        String rpta ="";
+        try {
+            if((prodStock-solStock)>=0){
+                ventaDAO.save(venta);
+                ventaDAO.ingresar_monto_venta(0);
+                ventaDAO.regist_nuev_vent(0);
+                ventaDAO.act_stock_prod(prodStock-solStock, venta.getProducto().getId());
+                rpta="paso";
+            }else{
+                rpta="El stock disponible es insuficiente o el producto no esta disponible";
+            }    
+        } catch (Exception e) {
+            rpta=e.getMessage();
+        }
+        
+        return rpta;
     }
     
     @Override

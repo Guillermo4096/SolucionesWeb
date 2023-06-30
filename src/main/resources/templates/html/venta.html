@@ -200,9 +200,12 @@
                             </div>
                         </form>
                     </div>
-
+                    <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null && mensaje!= 'paso'}" role="alert">
+                        <span th:text="${mensaje}"></span>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
                     <!-- Table -->
-
+                    
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="table-responsive table-wrapper-scroll-y my-custom-scrollbar">

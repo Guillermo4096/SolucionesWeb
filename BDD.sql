@@ -177,8 +177,7 @@ BEGIN
 END
 $$
 
-/*CALL ingresar_monto_venta(0);*/
-/*REGISTROS DE PRUEBA*/
+
 /*
 
 USUARIOS
@@ -233,24 +232,6 @@ INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('JUANA BAUTISTA', '
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('FRANCISCO', 'PACHECO HERRERA', '61796387', '938636242');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('MARIA DEL CARMEN', 'AWAD VAZQUEZ', '92002784', '987604732');
 
-/*
-====================================================================
-REGISTRAR OPERACIONES CON TODAS LAS TABLAS (FUNCIONALIDAD HISTORIAL)
-====================================================================
-*/
-/*
--Cliente
--Producto
--Proveedor
--Usuario
--Venta
-*/
-
-/*
-=================
-VENTA
-=================
-*/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS regist_op_hist$$
 CREATE PROCEDURE regist_op_hist(operacion varchar(50), codigo varchar(50))
@@ -290,6 +271,18 @@ BEGIN
     
     set cod_vent = (SELECT VENTA.cod_ven from venta order by cod desc limit 1);
     INSERT INTO HISTORIAL (fecha, operacion, codigo) VALUE (now(), 'Nueva venta registrada', cod_vent);
+END
+$$
+
+DELIMITER $$
+DROP PROCEDURE IF EXISTS act_stock_prod$$
+CREATE PROCEDURE act_stock_prod(IN stock int, cod_prod int)
+BEGIN
+	IF stock = 0 THEN
+        UPDATE PRODUCTO SET PRODUCTO.STOCK=stock, PRODUCTO.ESTADO='No disponible' WHERE PRODUCTO.COD_PROD=cod_prod;
+	ELSE
+        UPDATE PRODUCTO SET PRODUCTO.STOCK=stock WHERE PRODUCTO.COD_PROD=cod_prod;
+	END IF;
 END
 $$
 
