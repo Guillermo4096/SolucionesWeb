@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.fijsac.proyecto.controller.model.entidad.Venta;
 import com.fijsac.proyecto.controller.model.service.IVentaService;
 
 @Controller
@@ -35,6 +33,11 @@ public class InicioController {
     public String dashboard(Model model){
         int cantidad_ventas = ventaService.obtenerCantidadVentasHoy();
         model.addAttribute("ventasDeHoy", cantidad_ventas);
+
+        /*Venta ultimaVenta = ventaService.obtenerUltimaVenta();
+        model.addAttribute("codVenta", ultimaVenta.getCod());
+        model.addAttribute("fechaVenta", ultimaVenta.getFech());
+        model.addAttribute("montoVenta", ultimaVenta.getMon());*/
         return "/html/dashboard";
     }
 

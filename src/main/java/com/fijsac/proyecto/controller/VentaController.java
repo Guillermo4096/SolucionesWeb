@@ -120,9 +120,6 @@ public class VentaController {
 
     @RequestMapping(value = "/boleta/{id}", method = RequestMethod.GET)
     public String generarBoleta(@PathVariable("id") Long id, @RequestParam("fech") String fecha, @RequestParam("nom") String nombreCliente, @RequestParam("des") String descripcion, @RequestParam("can") int cantidad, @RequestParam("mon") double monto, @RequestParam("vendidoPor") String vendidoPor, Model model) {
-        // Obtener la venta y otros datos necesarios
-        Venta venta = ventaService.buscarVenta(id);
-
         // Agregar los datos al modelo
         model.addAttribute("fecha", fecha);
         model.addAttribute("nombreCliente", nombreCliente);
