@@ -68,4 +68,13 @@ public class VentaServiceImp implements IVentaService {
     public Venta obtenerUltimaVenta(){
         return ventaDAO.obtenerUltimaVenta();
     }
+    @Override
+    public String cancelarVenta(Long id, Long cantidad, Long idprod) {
+        int prodStock = ventaDAO.obtenerStockProducto(idprod);
+        int newCantidad = Integer.parseInt(""+cantidad);
+        int newProdStock = prodStock + newCantidad;
+        ventaDAO.act_stock_prod(newProdStock, idprod);
+        ventaDAO.deleteById(id);
+        return "";
+    }
 }

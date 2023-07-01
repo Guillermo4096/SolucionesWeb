@@ -108,6 +108,16 @@ public class VentaController {
         return "/html/nuevoCliente";
     }
 
+    @RequestMapping("/cancelar/{id}/{cantidad}/{cod_prod}")
+    public String CancelarVenta(
+        @PathVariable(value = "id")Long id, 
+        @PathVariable(value = "cantidad")Long cantidad,
+        @PathVariable(value = "cod_prod")Long cod_prod
+        ){
+        ventaService.cancelarVenta(id, cantidad, cod_prod);
+        return "redirect:/venta/";
+    }
+
     @RequestMapping(value = "/boleta/{id}", method = RequestMethod.GET)
     public String generarBoleta(@PathVariable("id") Long id, @RequestParam("fech") String fecha, @RequestParam("nom") String nombreCliente, @RequestParam("des") String descripcion, @RequestParam("can") int cantidad, @RequestParam("mon") double monto, @RequestParam("vendidoPor") String vendidoPor, Model model) {
         // Obtener la venta y otros datos necesarios

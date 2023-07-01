@@ -281,10 +281,12 @@ BEGIN
 	IF stock = 0 THEN
         UPDATE PRODUCTO SET PRODUCTO.STOCK=stock, PRODUCTO.ESTADO='No disponible' WHERE PRODUCTO.COD_PROD=cod_prod;
 	ELSE
-        UPDATE PRODUCTO SET PRODUCTO.STOCK=stock WHERE PRODUCTO.COD_PROD=cod_prod;
+        UPDATE PRODUCTO SET PRODUCTO.STOCK=stock, PRODUCTO.ESTADO='Disponible' WHERE PRODUCTO.COD_PROD=cod_prod;
 	END IF;
 END
 $$
+
+
 
 /*
 drop database sistema_fijsac;
