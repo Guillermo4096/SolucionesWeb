@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fijsac.proyecto.controller.model.entidad.Venta;
@@ -105,5 +106,22 @@ public class VentaController {
         model.addAttribute("listaCliente", clienteService.mostrarClienteOrdenado());
 
         return "/html/nuevoCliente";
+    }
+
+    @RequestMapping(value = "/boleta/{id}", method = RequestMethod.GET)
+    public String generarBoleta(@PathVariable("id") Long id, @RequestParam("fech") String fecha, @RequestParam("nom") String nombreCliente, @RequestParam("des") String descripcion, @RequestParam("can") int cantidad, @RequestParam("mon") double monto, @RequestParam("vendidoPor") String vendidoPor, Model model) {
+        // Obtener la venta y otros datos necesarios
+        Venta venta = ventaService.buscarVenta(id);
+
+        // Agregar los datos al modelo
+        model.addAttribute("fecha", fecha);
+        model.addAttribute("nombreCliente", nombreCliente);
+        model.addAttribute("descripcion", descripcion);
+        model.addAttribute("cantidad", cantidad);
+        model.addAttribute("monto", monto);
+        model.addAttribute("vendidoPor", vendidoPor);
+
+        // Redirigir a la página "boleta.html"
+        return "/html/boleta";
     }
 }
