@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boleta de Pago</title>
+  <style>
+    /* Estilos CSS para la boleta de pago */
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #f2f2f2;
+    }
+    
+    .title {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    
+    .content {
+      padding: 20px;
+      background-color: #ffffff;
+    }
+    
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    
+    .row span {
+      font-weight: bold;
+    }
+    
+    .input-group {
+      margin-bottom: 10px;
+    }
+    
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .input-group input[type="email"] {
+      width: 100%;
+      padding: 5px;
+    }
+    
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Boleta de Pago</h1>
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="row">
+            <span>Fecha:</span>
+            <span th:text="${fecha}"></span>
+        </div>
+        <div class="row">
+            <span>Cliente:</span>
+            <span th:text="${nombreCliente}"></span>
+        </div>
+        <div class="row">
+            <span>Descripción:</span>
+            <span th:text="${descripcion}"></span>
+        </div>
+        <div class="row">
+            <span>Cantidad:</span>
+            <span th:text="${cantidad}"></span>
+        </div>
+        <div class="row">
+            <span>Monto a pagar:</span>
+            <span th:text="${monto}"></span>
+        </div>
+        <div class="row">
+            <span>Vendido por:</span>
+            <span th:text="${vendidoPor}"></span>
+        </div>
+        
+        <div class="input-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <button class="button" onclick="enviarCorreo()">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    function enviarCorreo() {
+      // Aquí puedes agregar la lógica para enviar el correo electrónico
+      var email = document.getElementById("email").value;
+      // Lógica para enviar el correo usando el valor de "email"
+    }
+  </script>
+</body>
+</html>
