@@ -59,4 +59,13 @@ public class VentaServiceImp implements IVentaService {
         return ventaDAO.findById(id).orElse(null);
     }
 
+    @Override
+    public int obtenerCantidadVentasHoy(){
+        return ventaDAO.obtenerCantidadVentasHoy();
+    }
+
+    @Override
+    public Venta obtenerUltimaVenta(){
+        return ventaDAO.obtenerUltimaVenta();
+    }
 }

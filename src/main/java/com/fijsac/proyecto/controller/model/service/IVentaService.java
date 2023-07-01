@@ -10,4 +10,6 @@ public interface IVentaService {
     public void editarVenta(Venta venta);
     public void eliminarVenta(Long id, Long cod_us);
     public Venta buscarVenta(Long id);
+    public int obtenerCantidadVentasHoy();
+    public Venta obtenerUltimaVenta();
 }

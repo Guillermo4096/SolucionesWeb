@@ -34,4 +34,11 @@ public interface IVentaDAO extends CrudRepository<Venta,Long> {
         @Param("stock") int stock,
         @Param("cod_prod") Long cod_prod
     );
+
+    @Query(value = "SELECT COUNT(*) AS cantidad_ventas_hoy FROM venta WHERE DATE(fecha) = CURDATE()", nativeQuery = true)
+    public int obtenerCantidadVentasHoy();
+    
+    @Query(value = "SELECT cod_ven, fecha, monto FROM venta ORDER BY fecha DESC LIMIT 1", nativeQuery = true)
+    public Venta obtenerUltimaVenta();
+
 }
