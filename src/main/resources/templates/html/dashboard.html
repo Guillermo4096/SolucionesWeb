@@ -16,6 +16,35 @@
      <link th:href="@{/css/styletable.css}" rel="stylesheet">
      <link rel="stylesheet" th:href="@{/css/other/styleusuario.css}">
     <script src="https://kit.fontawesome.com/c8c4dcb26c.js" crossorigin="anonymous"></script>
+    <script>
+        function mostrarFechaHora() {
+          var fechaHora = new Date();
+    
+          var dia = fechaHora.getDate();
+          var mes = fechaHora.getMonth() + 1;
+          var anio = fechaHora.getFullYear();
+    
+          var horas = fechaHora.getHours();
+          var minutos = fechaHora.getMinutes();
+          var segundos = fechaHora.getSeconds();
+    
+          if (segundos < 10) {
+            segundos = '0' + segundos;
+          }
+          if (minutos < 10) {
+            minutos = '0' + minutos;
+          }
+          if (horas < 10) {
+            horas = '0' + horas;
+          }
+    
+          var fechaFormateada = dia + '/' + mes + '/' + anio;
+          var horaFormateada = horas + ':' + minutos + ':' + segundos;
+    
+          document.getElementById('fecha-hora').innerHTML = fechaFormateada + ' ' + horaFormateada;
+        }
+        setInterval(mostrarFechaHora, 1000);
+    </script>
 </head>
 
 <body id="page-top" class="sidebar-toggled">
@@ -129,8 +158,8 @@
                                 style="width:100px;height:80px">
                               </lord-icon>
                               <div class="ml-md-3">
-                                <h3>ÚLTIMO INICIO DE SESIÓN</h3> 
-                                <h3 class="verde">16 - 05 - 20026 11:58:04</h3>
+                                <h3>SESIÓN ACTIVA AHORA</h3> 
+                                <h3 class="verde" id="fecha-hora"></h3>
                               </div>
                             </div>
                           </div>
