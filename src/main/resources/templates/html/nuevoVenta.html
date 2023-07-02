@@ -24,7 +24,7 @@
 <body id="page-top" class="sidebar-toggled">
     <div id="wrapper">
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/dashboard}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" th:href="@{/dashboard/}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
                 </div>
@@ -38,7 +38,7 @@
                 Operaciones
             </div>
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/dashboard}">
+                <a class="nav-link collapsed" th:href="@{/dashboard/}">
                     <i class="fa-solid fa-file-lines"></i>
                     <span>Dashboard</span>
                 </a>
@@ -88,13 +88,16 @@
                 </a>
             </li>
             <hr class="sidebar-divider">
-            <br><br><br><br><br><br><br><br><br><br><br>
-             <li class="nav-item">
-                 <a class="nav-link collapsed" th:href="@{/login}">
-                    <i class="fas fa-fw fa-box" aria-hidden="true"></i>
-                    <span>  Cerrar Sesión</span>
-                 </a>
-             </li>
+            <br><br><br><br><br><br><br><br><br><br>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="" style="color:white; background: transparent; border:none;">
+                    <li class="nav-link collapsed">
+                            <i class="fas fa-fw fa-box" aria-hidden="true"></i>
+                            <span>  Cerrar Sesión</span>
+                        
+                    </li>
+                </button>
+             </form>
         
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
@@ -108,7 +111,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" th:href="@{/#}" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline small">Bienvenido, Nombre</span>
+                                <span class="mr-1 d-none d-lg-inline small">BIENVENIDO</span>
+                                <span class="mr-2 d-none d-lg-inline small" sec:authentication="name"></span>
                                 <i class="fas fa-user" style="color: #000000;"></i>
                             </a>
                         </li>

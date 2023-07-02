@@ -55,14 +55,14 @@
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/dashboard}">
+                <a class="nav-link collapsed" th:href="@{/dashboard/}">
                     <i class="fa-solid fa-file-lines"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link collapsed" th:href="@{/ventas/}">
+                <a class="nav-link collapsed" th:href="@{/venta/}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Ventas</span>
                 </a>
@@ -125,14 +125,17 @@
 
             <hr class="sidebar-divider">
 
-            <br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br>
             
-             <li class="nav-item">
-                 <a class="nav-link collapsed" th:href="@{/login}">
-                    <i class="fas fa-fw fa-box" aria-hidden="true"></i>
-                    <span>  Cerrar Sesión</span>
-                 </a>
-             </li>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="" style="color:white; background: transparent; border:none;">
+                    <li class="nav-link collapsed">
+                            <i class="fas fa-fw fa-box" aria-hidden="true"></i>
+                            <span>  Cerrar Sesión</span>
+                        
+                    </li>
+                </button>
+             </form>
         
         </ul>
 
@@ -160,7 +163,8 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" th:href="@{/#}" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline small">Bienvenido, Nombre</span>
+                                <span class="mr-1 d-none d-lg-inline small">BIENVENIDO</span>
+                                <span class="mr-2 d-none d-lg-inline small" sec:authentication="name"></span>
                                 <i class="fas fa-user" style="color: #000000;"></i>
                             </a>
                         </li>
@@ -191,7 +195,15 @@
                     <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="post">
                         <div class="card mb-4">
                             <div class="card-body">
-                                
+                                 
+                                <input th:field="*{enabled}" type="hidden" id="enabledField"  class="form-control bg-light border-1 small mt-3"  aria-label="Search" aria-describedby="basic-addon2" value="1" required>
+                                <script>
+                                    window.addEventListener('DOMContentLoaded', function() {
+                                      var enabledField = document.getElementById('enabledField');
+                                      enabledField.value = '1';
+                                    });
+                                  </script>
+
                                 <h1 class="h3 mb-0 text-gray-800 mt-3">
                                     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
                                     <lord-icon

@@ -40,7 +40,8 @@ create table usuario(
     dni char(8) unique not null,
     nom_ap varchar(100) not null,
     correo varchar(80) not null,
-    contraseña varchar(15) unique not null
+    contraseña varchar(80) unique not null,
+    enabled TINYINT  not null
 );
 create table venta(
 	cod int auto_increment primary key,
@@ -64,6 +65,20 @@ create table historial(
     operacion varchar(50) not null,
     codigo varchar(20)
 );
+
+CREATE TABLE IF NOT EXISTS `roles` (
+ `id` INT NOT NULL AUTO_INCREMENT,
+ `user_id` INT NOT NULL,
+ `authority` VARCHAR(45) NOT NULL,
+ PRIMARY KEY (`id`),
+ INDEX `fk_roles_usuarios_idx` (`user_id` ASC) VISIBLE,
+ CONSTRAINT `fk_roles_usuarios`
+  FOREIGN KEY (`user_id`)
+  REFERENCES `usuario` (`cod`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
 /*
 ============================
 DISPARADORES PARA LAS TABLAS
@@ -242,19 +257,18 @@ BEGIN
 END
 $$
 
-
-
 /*
 ========================
 REGISTROS BASE DE PRUEBA
 ========================
 */
-insert into usuario (dni, nom_ap, correo, contraseña) value ('12345678', 'José Fabricio Gonzales Lamas', 'N00224836@upn.pe', '123456');
-insert into usuario (dni, nom_ap, correo, contraseña) value ('87654321', 'Sebastián Samuel Zelada Chambi', 'asadada@gmail.com', '654321');
-INSERT INTO USUARIO (dni, nom_ap, correo, contraseña) VALUES ('51023262','OSCAR ORTIZ ROJAS', 'ORTIZ.10015@gmail.com', 'ORTIZ.10015');
-INSERT INTO USUARIO (dni, nom_ap, correo, contraseña) VALUES ('32527229','MARIA DE CARMEN ORTA JUAREZ', 'ORTA.10129@gmail.com', 'ORTA.10129');
-INSERT INTO USUARIO (dni, nom_ap, correo, contraseña) VALUES ('69142248','GRETA MORALES AVILA', 'MORALES.10132@gmail.com', 'MORALES.10132');
-INSERT INTO USUARIO (dni, nom_ap, correo, contraseña) VALUES ('86390523','ANGEL OSORIO EUAN', 'OSORIO.10135@gmail.com', 'OSORIO.10135');
+insert into usuario (cod_us, dni, nom_ap, correo, contraseña, enabled) value (NULL,'12345678', 'José Fabricio Gonzales Lamas', 'N00224836@upn.pe', '$2a$12$q5JkPGMKsVshZ2OUlIeqjuSLH3F1dM5Mk1qwRGVT3MV4pgM37ijFm',1);
+insert into usuario (cod_us, dni, nom_ap, correo, contraseña, enabled) value (NULL,'87654321', 'Sebastián Samuel Zelada Chambi', 'asadada@gmail.com', '$2a$12$4iZiyOrtPYHFD4GZn3Zv0eRWtkut1n2KMI/Imw9VnSjA.XXYN0Pm2',1);
+INSERT INTO USUARIO (cod_us, dni, nom_ap, correo, contraseña, enabled) VALUES (NULL,'51023262','OSCAR ORTIZ ROJAS', 'ORTIZ.10015@gmail.com', '$2a$12$dobvx4HTDgU0urob3CKx9.sYdaj5kkJp8n1qCjgowsAfFtyOI.gg2',1);
+INSERT INTO USUARIO (cod_us, dni, nom_ap, correo, contraseña, enabled) VALUES (NULL,'32527229','MARIA DE CARMEN ORTA JUAREZ', 'ORTA.10129@gmail.com', '$2a$12$aKZkDxuYPxJG4nUHXJmUtuI/i3r5vzmQQ1XsnOmS4t4tjwqGGckc.',1);
+INSERT INTO USUARIO (cod_us, dni, nom_ap, correo, contraseña, enabled) VALUES (NULL,'69142248','GRETA MORALES AVILA', 'MORALES.10132@gmail.com', '$2a$12$nb/flm718jHRiMOOe.Ikwu9BCAkpwNCWaVR7LGHp0fDMTMN3uQoTu',1);
+INSERT INTO USUARIO (cod_us, dni, nom_ap, correo, contraseña, enabled) VALUES (NULL,'86390523','ANGEL OSORIO EUAN', 'OSORIO.10135@gmail.com', '$2a$12$6Jz2Zq/hxp4X5n8eifIT5eU9q3ETOPEPeiLHUqJpdUbBy5VaCGENC',1);
+
 
 INSERT INTO PROVEEDOR (prov_ruc, prov_nombre, direccion, telefono) VALUES ('65206875638', 'FERRETERIA MODERNA OR SAS', '26 Oriente  N° 510', '901145497');
 INSERT INTO PROVEEDOR (prov_ruc, prov_nombre, direccion, telefono) VALUES ('59128069560', 'HERRAMIENTAS TECNICAS SAS', '24 Oriente  N° 512', '890922365');
@@ -284,16 +298,15 @@ INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('JUANA BAUTISTA', '
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('FRANCISCO', 'PACHECO HERRERA', '61796387', '938636242');
 INSERT INTO CLIENTE (nombre, apellido, dni, celular) VALUES ('MARIA DEL CARMEN', 'AWAD VAZQUEZ', '92002784', '987604732');
 
-
-
-
-
 /*
 drop database sistema_fijsac;
 use sistema_fijsac;
+select * from roles;
 select * from usuario;
 select * from cliente;
 select * from venta;
 select * from producto;
 select * from proveedor;
+select * from historial;
+
 */

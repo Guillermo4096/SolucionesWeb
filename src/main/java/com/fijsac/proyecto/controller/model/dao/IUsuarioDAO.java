@@ -19,4 +19,7 @@ public interface IUsuarioDAO extends CrudRepository<Usuario,Long> {
         @Param("operacion") String operacion,
         @Param("codigo") String codigo
     );
+
+    public Usuario findByIdusuario(String username);
+
 }
