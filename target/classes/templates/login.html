@@ -22,16 +22,16 @@
         </div>
         <!-- end logo -->
       </div>
-      <form class="form-signin op" id="contenedorLogin">
+      <form class="form-signin op" id="contenedorLogin" th:action="@{/login}" method="post">
         <h1 class="title" id="title-form">Iniciar Sesión</h1>
         <div>
-            <input class="bordes" id="inputUserName" placeholder="Usuario" required type="user" />
+            <input class="bordes" id="username" name="username" placeholder="Usuario" required type="user" />
         </div>
         <div>
-          <input id="inputPassword" placeholder="Contraseña" required="" type="password" />
+          <input  id="password inputPassword" name="password" placeholder="Contraseña" required="" type="password" />
         </div>
-        <a th:href="@{/dashboard}" class="button button-orange w100" id="btnIngresar">Ingresar</a><a th:href="@{/}" id="btnRegresar">Regresar</a>
-        <!--<button class="button-signin button-orange w100" type="submit">Ingresar</button><a th:href="@{/}">Regresar</a>-->
+        <!--<a th:href="@{/dashboard}" class="button button-orange w100" id="btnIngresar">Ingresar</a><a th:href="@{/}" id="btnRegresar">Regresar</a>-->
+        <button class="button-signin button-orange w100" type="submit">Ingresar</button><a th:href="@{/}">Regresar</a>
       </form>
     </div>
   </main>

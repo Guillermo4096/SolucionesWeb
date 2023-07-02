@@ -1,12 +1,17 @@
 package com.fijsac.proyecto.controller.model.entidad;
 
 import java.io.Serializable;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,6 +32,27 @@ public class Usuario implements Serializable {
     @Column(name="contraseña")
     private String contra;
     
+    
+    private Boolean enabled;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<Rol> roles;
+
+    
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+    public List<Rol> getRoles() {
+        return roles;
+    }
+    public void setRoles(List<Rol> roles) {
+        this.roles = roles;
+    }
     public Long getId() {
         return id;
     }

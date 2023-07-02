@@ -3,6 +3,7 @@ package com.fijsac.proyecto.controller.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.fijsac.proyecto.controller.model.dao.IUsuarioDAO;
@@ -14,8 +15,17 @@ public class UsuarioServiceImp implements IUsuarioService {
     @Autowired
     private IUsuarioDAO usuarioDAO;
 
+      @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+
     @Override
     public void guardarUsuario(Usuario usuario) {
+        // Codificar la contraseña
+        String contraseñaCodificada = passwordEncoder.encode(usuario.getContra());
+        // Establecer la contraseña codificada en el objeto Usuario
+        usuario.setContra(contraseñaCodificada);
+
         usuarioDAO.save(usuario);
         usuarioDAO.regist_nuev_user(0);
     }
@@ -46,6 +56,11 @@ public class UsuarioServiceImp implements IUsuarioService {
 
     @Override
     public void editarUsuario(Usuario usuario) {
+        // Codificar la contraseña
+        String contraseñaCodificada = passwordEncoder.encode(usuario.getContra());
+        // Establecer la contraseña codificada en el objeto Usuario
+        usuario.setContra(contraseñaCodificada);
+
         usuarioDAO.save(usuario);
         usuarioDAO.regist_op_hist(
             "Usuario editado", 
