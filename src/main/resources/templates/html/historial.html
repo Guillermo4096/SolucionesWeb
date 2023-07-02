@@ -191,12 +191,10 @@
                             <form
                                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small" placeholder="Buscar"
-                                        aria-label="Search" aria-describedby="basic-addon2">
+                                    <input class="form-control me-2 light-table-filter" data-table="table_id" type="text" 
+                                        placeholder="Buscar">
                                     <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm"></i>
-                                        </button>
+                                        
                                     </div>
                                 </div>
                             </form>
@@ -280,6 +278,7 @@
     <!-- Bootstrap core JavaScript-->
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    <script th:src="@{/js/buscador.js}"></script>
 
     <!-- Core plugin JavaScript
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script> -->
