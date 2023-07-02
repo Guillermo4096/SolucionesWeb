@@ -46,5 +46,10 @@ public class ClienteServiveImp implements IClienteService{
             dni
         );
     }
+
+    @Override
+    public Cliente obtenerUltimoCliente(){
+        return clienteDAO.obtenerUltimoCliente();
+    }
     
 }
