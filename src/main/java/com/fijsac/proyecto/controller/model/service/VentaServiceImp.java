@@ -3,10 +3,17 @@ package com.fijsac.proyecto.controller.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamSource;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.fijsac.proyecto.controller.model.dao.IVentaDAO;
 import com.fijsac.proyecto.controller.model.entidad.Venta;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 
 @Service
 public class VentaServiceImp implements IVentaService {
@@ -78,4 +85,32 @@ public class VentaServiceImp implements IVentaService {
         ventaDAO.deleteById(id);
         return "";
     }
+
+    /*private JavaMailSender mailSender;
+
+    public VentaServiceImp(JavaMailSender mailSender){
+        this.mailSender = mailSender;
+    }
+
+    public void send(String from, String to, String subject, String text){
+        SimpleMailMessage message = new SimpleMailMessage(null);
+        message.setFrom(from);
+        message.setTo(to);
+        message.setSubject(subject);
+        message.setText(text);
+        mailSender.send(message);
+    }
+
+    public void sendWithAttach(String from, String to, String subjec,
+                                String text, String attachName,
+                                InputStreamSource inputStream) throws MessagingException{
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        helper.setFrom(from);
+        helper.setTo(to);
+        helper.setSubject(subjec);
+        helper.setText(text, true);
+        helper.addAttachment(attachName, inputStream);
+        mailSender.send(message);
+    }*/
 }
