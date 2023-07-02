@@ -29,7 +29,7 @@ public class InicioController {
         return "/html/edit";
     }    
     
-    @RequestMapping("/dashboard")
+    @RequestMapping("/dashboard/")
     public String dashboard(Model model){
         int cantidad_ventas = ventaService.obtenerCantidadVentasHoy();
         model.addAttribute("ventasDeHoy", cantidad_ventas);
