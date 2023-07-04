@@ -75,11 +75,6 @@ public class VentaServiceImp implements IVentaService {
     public Venta obtenerUltimaVenta(){
         return ventaDAO.obtenerUltimaVenta();
     }
-
-    @Override
-    public Venta detalleVenta(Long id){
-        return ventaDAO.findById(id).orElse(null);
-    }
     
     @Override
     public String cancelarVenta(Long id, Long cantidad, Long idprod) {

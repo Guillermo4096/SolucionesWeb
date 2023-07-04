@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Boleta de Pago</title>
   <style>
     /* Estilos CSS para la boleta de pago */
@@ -67,92 +66,54 @@
   </style>
 </head>
 <body>
-  <div class="content">
-    <!-- Sección de la boleta de pago -->
-    <form onsubmit="enviarCorreo(event)">
-      <div class="container">
-        <div class="header">
-          <h1 class="title">Boleta de Pago</h1>
-            <div class="sidebar-brand-icon rotate-n-15">
-                <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
-            </div>
+  <div class="container">
+    <div class="header">
+      <h1 class="title">Boleta de Pago</h1>
+        <div class="sidebar-brand-icon rotate-n-15">
+            <img id="logoDash" th:src="@{/assets/ico/logo.ico}" alt="logo">
         </div>
-        <div class="row">
-          <span>Fecha:</span>
-          <span th:text="${fechaBoleta}"></span>
-        </div>
-        <div class="row">
-          <span>Descripción:</span>
-          <span th:text="${descBoleta}"></span>
-        </div>
-        <div class="row">
-          <span>Cantidad:</span>
-          <span th:text="${cantBoleta}"></span>
-        </div>
-        <div class="row">
-          <span>Monto a pagar:</span>
-          <span th:text="'S/. ' + ${montoBoleta}"></span>
-        </div>
+    </div>
     
-        <div class="input-group">
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required>
+    <div class="content">
+        <div class="row">
+            <span>Fecha:</span>
+            <span th:text="${fecha}"></span>
         </div>
-  
-      <button class="button" type="submit">Enviar</button>
-      </div>
-    </form>
+        <div class="row">
+            <span>Cliente:</span>
+            <span th:text="${nombreCliente}"></span>
+        </div>
+        <div class="row">
+            <span>Descripción:</span>
+            <span th:text="${descripcion}"></span>
+        </div>
+        <div class="row">
+            <span>Cantidad:</span>
+            <span th:text="${cantidad}"></span>
+        </div>
+        <div class="row">
+            <span>Monto a pagar:</span>
+            <span th:text="${monto}"></span>
+        </div>
+        <div class="row">
+            <span>Vendido por:</span>
+            <span th:text="${vendidoPor}"></span>
+        </div>
+        
+        <div class="input-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <button class="button" onclick="enviarCorreo()">Enviar</button>
+    </div>
   </div>
 
   <script>
-    function enviarCorreo(event) {
-      event.preventDefault();
-
+    function enviarCorreo() {
+      // Aquí puedes agregar la lógica para enviar el correo electrónico
       var email = document.getElementById("email").value;
-      var datosBoleta = obtenerDatosBoleta();
-
-      // Realiza una llamada AJAX o una petición al backend para enviar el correo electrónico con los datos de la boleta y la dirección de correo electrónico "email".
-      // Aquí debes implementar la lógica del envío del correo en tu backend.
-
-      // Ejemplo de llamada AJAX utilizando jQuery:
-      $.ajax({
-        url: "/enviar-correo",
-        type: "POST",
-        data: {
-          email: email,
-          boleta: datosBoleta
-        },
-        success: function(response) {
-          // Lógica para manejar la respuesta del servidor
-          console.log("Correo enviado exitosamente");
-        },
-        error: function(error) {
-          // Lógica para manejar el error de la petición
-          console.error("Error al enviar el correo");
-        }
-      });
-    }
-
-    function obtenerDatosBoleta() {
-      // Aquí puedes obtener los datos de la boleta de pago del DOM y retornarlos como un objeto o una cadena de texto, según tus necesidades.
-      // Por ejemplo:
-      var fecha = document.querySelector(".row span:nth-child(2)").textContent;
-      var nombreCliente = document.querySelector(".row span:nth-child(4)").textContent;
-      var descripcion = document.querySelector(".row span:nth-child(6)").textContent;
-      var cantidad = document.querySelector(".row span:nth-child(8)").textContent;
-      var monto = document.querySelector(".row span:nth-child(10)").textContent;
-      var vendidoPor = document.querySelector(".row span:nth-child(12)").textContent;
-
-      var datosBoleta = {
-        fecha: fecha,
-        nombreCliente: nombreCliente,
-        descripcion: descripcion,
-        cantidad: cantidad,
-        monto: monto,
-        vendidoPor: vendidoPor
-      };
-
-      return JSON.stringify(datosBoleta);
+      // Lógica para enviar el correo usando el valor de "email"
     }
   </script>
 </body>
