@@ -12,5 +12,6 @@ public interface IVentaService {
     public Venta buscarVenta(Long id);
     public int obtenerCantidadVentasHoy();
     public Venta obtenerUltimaVenta();
+    public Venta detalleVenta(Long id);
     public String cancelarVenta(Long id, Long cantidad, Long idprod);
 }
