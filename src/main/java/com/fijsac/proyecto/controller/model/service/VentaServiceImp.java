@@ -3,17 +3,17 @@ package com.fijsac.proyecto.controller.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamSource;
+/*import org.springframework.core.io.InputStreamSource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessageHelper;*/
 import org.springframework.stereotype.Service;
 
 import com.fijsac.proyecto.controller.model.dao.IVentaDAO;
 import com.fijsac.proyecto.controller.model.entidad.Venta;
 
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
+/*import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;*/
 
 @Service
 public class VentaServiceImp implements IVentaService {
