@@ -78,4 +78,9 @@ public class VentaServiceImp implements IVentaService {
         ventaDAO.deleteById(id);
         return "";
     }
+
+    @Override
+    public Venta detalleVenta(Long id){
+        return ventaDAO.findById(id).orElse(null);
+    }
 }

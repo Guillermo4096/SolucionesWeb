@@ -10,4 +10,7 @@ public interface IClienteService {
     public Cliente buscarCliente(Long id);
     public void eliminarCliente(Long id, String dni);
     public List<Cliente> mostrarClienteOrdenado();
+
+    public Cliente obtenerUltimoCliente();
+
 }

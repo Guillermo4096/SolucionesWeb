@@ -237,9 +237,10 @@
                                                     <i class="fa-solid fa-xmark"></i>
                                                 </a>
                                                 <a class="btn btn-danger" th:href="@{/venta/eliminar/} + ${item.id} +'/'+${item.usuario.id}" onclick="return confirm('Desea eliminar el producto?')">
-                                                    <i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                                <a class="btn btn-info" th:href="@{/venta/boleta/} + ${item.id} + '?fech=' + ${item.fech} + '&nom=' + ${item.cliente.nom} + '&des=' + ${item.des} + '&can=' + ${item.can} + '&mon=' + ${item.mon} + '&vendidoPor=' + ${item.usuario.nombre}" target="_blank">
-                                                    <i class="fa fa-clipboard" aria-hidden="true"></i></a>
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                                <a class="btn btn-info" th:href="@{/venta/boleta/} + ${item.id}" target="_blank">
+                                                    <i class="fa fa-clipboard" aria-hidden="true"></i>
                                                 </a>
                                             </td>
                                         </tr>

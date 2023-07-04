@@ -77,29 +77,20 @@
     <div class="content">
         <div class="row">
             <span>Fecha:</span>
-            <span th:text="${fecha}"></span>
-        </div>
-        <div class="row">
-            <span>Cliente:</span>
-            <span th:text="${nombreCliente}"></span>
+            <span th:text="${fechaBoleta}"></span>
         </div>
         <div class="row">
             <span>Descripción:</span>
-            <span th:text="${descripcion}"></span>
+            <span th:text="${descBoleta}"></span>
         </div>
         <div class="row">
             <span>Cantidad:</span>
-            <span th:text="${cantidad}"></span>
+            <span th:text="${cantBoleta}"></span>
         </div>
         <div class="row">
             <span>Monto a pagar:</span>
-            <span th:text="${monto}"></span>
-        </div>
-        <div class="row">
-            <span>Vendido por:</span>
-            <span th:text="${vendidoPor}"></span>
-        </div>
-        
+            <span th:text="${'S/. ' +montoBoleta}"></span>
+        </div>     
         <div class="input-group">
             <label for="email">Correo electrónico:</label>
             <input type="email" id="email" name="email" required>

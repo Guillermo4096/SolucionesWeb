@@ -118,17 +118,14 @@ public class VentaController {
         return "redirect:/venta/";
     }
 
-    @RequestMapping(value = "/boleta/{id}", method = RequestMethod.GET)
-    public String generarBoleta(@PathVariable("id") Long id, @RequestParam("fech") String fecha, @RequestParam("nom") String nombreCliente, @RequestParam("des") String descripcion, @RequestParam("can") int cantidad, @RequestParam("mon") double monto, @RequestParam("vendidoPor") String vendidoPor, Model model) {
-        // Agregar los datos al modelo
-        model.addAttribute("fecha", fecha);
-        model.addAttribute("nombreCliente", nombreCliente);
-        model.addAttribute("descripcion", descripcion);
-        model.addAttribute("cantidad", cantidad);
-        model.addAttribute("monto", monto);
-        model.addAttribute("vendidoPor", vendidoPor);
-
-        // Redirigir a la página "boleta.html"
+    
+    @RequestMapping(value = "/boleta/{id}")
+    public String generarBoleta(@PathVariable(value = "id") Long id, Model model) {
+        Venta venta = ventaService.detalleVenta(id);
+        model.addAttribute("fechaBoleta", venta.getFech());
+        model.addAttribute("descBoleta", venta.getDes());
+        model.addAttribute("cantBoleta", venta.getCan());
+        model.addAttribute("montoBoleta", venta.getMon());
         return "/html/boleta";
     }
 }

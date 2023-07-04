@@ -12,4 +12,5 @@ public interface IProductoService {
     public Producto buscarProducto(Long id);
 
     public List<Producto> mostrarProductoOrdenado();
+    public Producto obtenerProductoMasVendido();
 }

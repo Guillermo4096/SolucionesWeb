@@ -200,13 +200,13 @@
                                     style="width:250px;height:250px">
                                 </lord-icon>
                               <div class="ml-md-3">
-                                <h5>INFORMACIÓN DE ULTIMA VENTA</h5>
+                                <h5>INFORMACIÓN DE ÚLTIMA VENTA</h5>
                                 <h5>CÓDIGO</h5>  
-                                <h5 class="verde">VEN-00001</h5>
+                                <h5 class="verde" th:text="${codVenta}"></h5>
                                 <h5>FECHA</h5>
-                                <h5 class="verde">16 - 05 - 2023 15:15:30</h5>
+                                <h5 class="verde" th:text="${fechaVenta}"></h5>
                                 <h5>MONTO TOTAL</h5>
-                                <h5 class="verde">S/. 90.00</h5>  
+                                <h5 class="verde" th:text="${montoVenta}"></h5>
                               </div>
                             </div>
                           </div>
@@ -224,12 +224,12 @@
                                 </lord-icon>
                               <div class="ml-md-3">
                                 <h5>PRODUCTO MÁS VENDIDO</h5>
-                                <h5>CÓDIGO</h5>  
-                                <h5 class="verde">P00001</h5>
+                                <h5>SKU</h5>  
+                                <h5 class="verde" th:text="${codProd}"></h5>
                                 <h5>PRODUCTO</h5>
-                                <h5 class="verde">Juego de destronilladores</h5>
+                                <h5 class="verde" th:text="${desProd}"></h5>
                                 <h5>PRECIO</h5>
-                                <h5 class="verde">S/. 90.00</h5>  
+                                <h5 class="verde" th:text="${preProd}"></h5>
                               </div>
                             </div>
                           </div>
@@ -238,27 +238,25 @@
                       <div class="card mb-4">
                         <div class="card-body">
                             <h1 class="h3 mb-0  text-gray-800 mb-3">
-                                INFORMACIÓN DE ÚLTIMA DEVOLUCIÓN</h1>
+                                NUESTRO MÁS RECIENTE CLIENTE</h1>
                             <div class="table-responsive">
                                 <table class="table table-bordered table_id table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>CÓDIGO</th>
-                                            <th>FECHA</th>
-                                            <th>DESCRIPCIÓN</th>
+                                            <th>NOMBRES</th>
+                                            <th>APELLIDOS</th>
                                             <th>DNI</th>
-                                            <th>CONS.</th>
-                                            <th>MONTO</th>
+                                            <th>CELULAR</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="verde">R0001</td>
-                                            <td>2022-03-15</td>
-                                            <td>Inicio de sesión en el sistema</td>
-                                            <td class="verde">Ninguno</td>
-                                            <td>F0000001</td>
-                                            <td>S/. 90.00</td>
+                                            <td class="verde" th:text="${idCliente}"></td>
+                                            <td th:text="${nCliente}"></td>
+                                            <td th:text="${aCliente}"></td>
+                                            <td class="verde" th:text="${dCliente}"></td>
+                                            <td th:text="${cCliente}"></td>
                                         </tr>
                                     </tbody>
                                 </table>

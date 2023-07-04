@@ -52,4 +52,9 @@ public class ProductoServiceImp implements IProductoService {
             producto.getReferencia()
         );
     }
+    
+    @Override
+    public Producto obtenerProductoMasVendido(){
+        return productoDAO.obtenerProductoMasVendido();
+    }
 }
